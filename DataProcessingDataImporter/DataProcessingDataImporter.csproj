@@ -50,8 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AD\GeslachtModel.cs" />
     <Compile Include="Models\AD\HerkomstModel.cs" />
+    <Compile Include="Models\GeslachtModel.cs" />
+    <Compile Include="Models\DS\MboLeerwegEnNiveauModel.cs" />
+    <Compile Include="Models\DS\MboRichtingEnSectorModel.cs" />
+    <Compile Include="Models\DS\PersoonsKenmerkenModel.cs" />
     <Compile Include="Models\DS\TypedDataSetModel.cs" />
     <Compile Include="Models\OdataReceiver.cs" />
     <Compile Include="Models\AD\TypedDataSetModel.cs" />

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataProcessingDataImporter.Models.AD
+namespace DataProcessingDataImporter.Models.DS
 {
-    class GeslachtModel
+    class MboRichtingEnSectorModel
     {
         public string Key { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

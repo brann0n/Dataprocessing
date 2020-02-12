@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataProcessingDataImporter.Models
 {
-    public class PeriodenModel
+    class GeslachtModel
     {
         public string Key { get; set; }
         public string Title { get; set; }
-        public string Status { get; set; }
         public string Description { get; set; }
     }
 }
