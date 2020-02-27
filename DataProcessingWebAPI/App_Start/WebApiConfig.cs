@@ -1,6 +1,9 @@
-﻿using System;
+﻿using DataProcessingWebAPI.App_Start;
+using DataProcessingWebAPI.Areas.HelpPage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
 
 namespace DataProcessingWebAPI
@@ -19,6 +22,8 @@ namespace DataProcessingWebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Formatters.Add(new BrowserJsonFormatter());
+            config.SetDocumentationProvider(new XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")));
         }
     }
 }
