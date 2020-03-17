@@ -14,47 +14,13 @@ namespace DataProcessingWebAPI.Controllers
     /// The alcohol and drugs controller, this controller can do REST functions on the tables for Alcohol En Drugs
     /// </summary>
     [RoutePrefix("api/AlcoholEnDrugs")]
-    public class AlcolholEnDrugsController : ApiController
+    public partial class AlcolholEnDrugsController : ApiController
     {
         //reference to the EntityFramework classes that are connected to the database
         DataProcessingEntities db = new DataProcessingEntities();
 
         /// <summary>
-        /// Gets all the records in the AlcoholEnDrugs database
-        /// </summary>
-        /// <returns>a list of Alcohol En Drugs items</returns>
-        public List<AlcoholEnDrugs> Get()
-        {
-            var table = db.ADDataSets;
-            List<AlcoholEnDrugs> lijstje = new List<AlcoholEnDrugs>();
-            foreach(var record in table)
-            {
-                lijstje.Add(record);
-            }
-
-            return lijstje;
-        }
-
-        /// <summary>
-        /// Gets the specified amount of records from the database
-        /// </summary>
-        /// <param name="limit">the amount of items to get</param>
-        /// <returns>a full list</returns>
-        [Route("GetPerLimit/{limit}")]
-        public List<AlcoholEnDrugs> Get(int limit)
-        {
-            var table = db.ADDataSets.Take(limit);
-            List<AlcoholEnDrugs> lijstje = new List<AlcoholEnDrugs>();
-            foreach (var record in table)
-            {
-                lijstje.Add(record);
-            }
-
-            return lijstje;
-        }
-
-        /// <summary>
-        /// Function to modify the underlying dataset
+        /// Function to modify the underlying Herkomst dataset
         /// </summary>
         /// <param name="model">the changed model</param>
         /// <returns>http response message with status code 200 or 500</returns>
@@ -64,13 +30,14 @@ namespace DataProcessingWebAPI.Controllers
             if(model != null)
             {
                 db.ADHerkomsts.AddOrUpdate(model);
+                db.SaveChanges();
             }
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         /// <summary>
-        /// Function to modify the underlying dataset
+        /// Function to modify the underlying Perioden dataset
         /// </summary>
         /// <param name="model">the changed model</param>
         /// <returns>http response message with status code 200 or 500</returns>
@@ -80,22 +47,24 @@ namespace DataProcessingWebAPI.Controllers
             if (model != null)
             {
                 db.ADPeriodens.AddOrUpdate(model);
+                db.SaveChanges();
             }
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         /// <summary>
-        /// Function to modify the underlying dataset
+        /// Function to modify the underlying Geslacht dataset
         /// </summary>
         /// <param name="model">the changed model</param>
         /// <returns>http response message with status code 200 or 500</returns>
         [Route("ChangeGeslacht")]
-        public HttpResponseMessage PostPerioden(ADGeslacht model)
+        public HttpResponseMessage PostGeslacht(ADGeslacht model)
         {
             if (model != null)
             {
                 db.ADGeslachts.AddOrUpdate(model);
+                db.SaveChanges();
             }
 
             return new HttpResponseMessage(HttpStatusCode.OK);
@@ -106,12 +75,13 @@ namespace DataProcessingWebAPI.Controllers
         /// </summary>
         /// <param name="model">the changed model with keys to other tables</param>
         /// <returns>http response message with status code 200 or 500</returns>
-        [Route("ChangeGeslacht")]
-        public HttpResponseMessage PostPerioden(ADDataSet model)
+        [Route("ChangeDataset")]
+        public HttpResponseMessage PostDataset(ADDataSet model)
         {
             if (model != null)
             {
                 db.ADDataSets.AddOrUpdate(model);
+                db.SaveChanges();
             }
 
             return new HttpResponseMessage(HttpStatusCode.OK);

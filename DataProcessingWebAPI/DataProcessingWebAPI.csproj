@@ -176,9 +176,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AlcoholEnDrugs\Delete.cs" />
+    <Compile Include="Controllers\AlcoholEnDrugs\Get.cs" />
     <Compile Include="Controllers\AlcolholEnDrugsController.cs" />
+    <Compile Include="Controllers\DoorstroomController.cs" />
+    <Compile Include="Controllers\Doorstroom\Delete.cs" />
+    <Compile Include="Controllers\Doorstroom\Get.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WerkzameBeroepsbevolkingController.cs" />
+    <Compile Include="Controllers\WerkzameBeroepsbevolking\Get.cs" />
     <Compile Include="Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

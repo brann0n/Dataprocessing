@@ -18,5 +18,28 @@ namespace DataProcessingWebAPI.Models
         public Nullable<int> OverigeCreatieveBeroepen { get; set; }
         public Nullable<int> WerkzPersMetNietCreatieveBeroep { get; set; }
         public Nullable<int> WerkzPersMetBeroepOnbekend { get; set; }
+
+        /// <summary>
+        /// does conversion from the other object to this object.
+        /// </summary>
+        /// <param name="bDataSet">Database object</param>
+        public static implicit operator WerkzameBeroepsbevolking(WBDataSet b)
+        {
+            DataProcessingEntities db = new DataProcessingEntities();
+            WerkzameBeroepsbevolking item = new WerkzameBeroepsbevolking()
+            {
+                Kenmerken = db.WBKenmerkens.FirstOrDefault(n => n.Key == b.Kenmerken).Title,
+                Perioden = db.WBPeriodens.FirstOrDefault(n => n.Key == b.Perioden).Title,
+                WerkzameBeroepsbevolkingTotaal = b.WerkzameBeroepsbevolkingTotaal,
+                TotaalCreatieveBeroepen = b.TotaalCreatieveBeroepen,
+                Kunsten = b.Kunsten,
+                MediaEnEntertainment = b.MediaEnEntertainment,
+                CreatieveZakelijkeDienstverlening = b.CreatieveZakelijkeDienstverlening,
+                OverigeCreatieveBeroepen = b.OverigeCreatieveBeroepen,
+                WerkzPersMetNietCreatieveBeroep = b.WerkzPersMetNietCreatieveBeroep,
+                WerkzPersMetBeroepOnbekend = b.WerkzPersMetBeroepOnbekend
+            };
+            return item;
+        }
     }
 }

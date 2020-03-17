@@ -486,39 +486,242 @@
             The alcohol and drugs controller, this controller can do REST functions on the tables for Alcohol En Drugs
             </summary>
         </member>
-        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.Get">
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.DeleteGeslacht(System.String)">
             <summary>
-            Gets all the records in the AlcoholEnDrugs database
+            Delete a record from the Geslacht table
             </summary>
-            <returns>a list of Alcohol En Drugs items</returns>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
         </member>
-        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.Get(System.Int32)">
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.DeleteHerkomst(System.String)">
             <summary>
-            Gets the specified amount of records from the database
+            Delete a record from the Herkomst table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.DeletePerioden(System.String)">
+            <summary>
+            Delete a record from the Perioden table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.DeleteDataset(System.Int32)">
+            <summary>
+            Delete a record from the Geslacht table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.Get(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
             </summary>
             <param name="limit">the amount of items to get</param>
-            <returns>a full list</returns>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of AlcoholEnDrugs items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.GetHerkomst(System.Int32,System.Int32)">
+            <summary>
+            Get Dataset Herkomst
+            </summary>
+            <param name="limit">items to get</param>
+            <param name="skip">items to skip</param>
+            <returns>list of items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.GetGeslacht(System.Int32,System.Int32)">
+            <summary>
+            Get Dataset Geslacht
+            </summary>
+            <param name="limit">items to get</param>
+            <param name="skip">items to skip</param>
+            <returns>list of items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.GetPerioden(System.Int32,System.Int32)">
+            <summary>
+            Get Dataset Perioden
+            </summary>
+            <param name="limit">items to get</param>
+            <param name="skip">items to skip</param>
+            <returns>list of items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.GetDataSet(System.Int32,System.Int32)">
+            <summary>
+            Get Dataset
+            </summary>
+            <param name="limit">items to get</param>
+            <param name="skip">items to skip</param>
+            <returns>list of items</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostHerkomst(DataProcessingWebAPI.ADHerkomst)">
             <summary>
-            Function to modify the underlying dataset
+            Function to modify the underlying Herkomst dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostPerioden(DataProcessingWebAPI.ADPerioden)">
             <summary>
-            Function to modify the underlying dataset
+            Function to modify the underlying Perioden dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
-        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostPerioden(DataProcessingWebAPI.ADGeslacht)">
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostGeslacht(DataProcessingWebAPI.ADGeslacht)">
             <summary>
-            Function to modify the underlying dataset
+            Function to modify the underlying Geslacht dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostDataset(DataProcessingWebAPI.ADDataSet)">
+            <summary>
+            Function to modify the underlying dataset
+            </summary>
+            <param name="model">the changed model with keys to other tables</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="T:DataProcessingWebAPI.Controllers.DoorstroomController">
+            <summary>
+            The doorstroom controller, this controller can do REST functions on the Doorstroom tables.
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeleteGeslacht(System.String)">
+            <summary>
+            Delete a record from the Geslacht table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeleteMboLeerwegEnNiveaus(System.String)">
+            <summary>
+            Delete a record from the MboLeerwegEnNiveaus table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeleteMboRichtingEnSectors(System.String)">
+            <summary>
+            Delete a record from the MboRichtingEnSectors table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeletePerioden(System.String)">
+            <summary>
+            Delete a record from the Perioden table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeletePersoonsKenmerken(System.String)">
+            <summary>
+            Delete a record from the PersoonsKenmerken table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.DeleteDataSet(System.Int32)">
+            <summary>
+            Delete a record from the Dataset table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.Get(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Doorstroom items</returns>
+        </member>
+        <member name="T:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController">
+            <summary>
+            The WerkzameBeroepsbevolking controller, this controller can do REST functions on the WerkzameBeroepsbevolking tables.
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.Get(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of WerkzameBeroepsbevolking items</returns>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Id">
+            <summary>
+            Item id
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Geslacht">
+            <summary>
+            Geslacht van persoon
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Herkomst">
+            <summary>
+            Herkomst van persoon
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Perioden">
+            <summary>
+            Periode van ondervragen
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Alcoholgebruik">
+            <summary>
+            Gehalte van alcoholgebruik
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.BingeDrinken">
+            <summary>
+            Gehalte van Bingedrinken
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.CannabisOoitGebruikt">
+            <summary>
+            Gehalte van Cannabis Ooit Gebruikt
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.CannabisActiefGebruik">
+            <summary>
+            Gehalte van Cannabis Actief Gebruik
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.TotaalGebruik">
+            <summary>
+            Gehalte Totaal gebruik
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.XTC">
+            <summary>
+            Gehalte XTC
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Cocaine">
+            <summary>
+            Gehalte Cocaine
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.AlcoholEnDrugs.op_Implicit(DataProcessingWebAPI.ADDataSet)~DataProcessingWebAPI.Models.AlcoholEnDrugs">
+            <summary>
+            does conversion from the other object to this object.
+            </summary>
+            <param name="v">the object to convert</param>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.DoorstroomData.op_Implicit(DataProcessingWebAPI.DSDataSet)~DataProcessingWebAPI.Models.DoorstroomData">
+            <summary>
+            Converts the database item into a api friendly item
+            </summary>
+            <param name="d">item to convert</param>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.op_Implicit(DataProcessingWebAPI.WBDataSet)~DataProcessingWebAPI.Models.WerkzameBeroepsbevolking">
+            <summary>
+            does conversion from the other object to this object.
+            </summary>
+            <param name="bDataSet">Database object</param>
         </member>
     </members>
 </doc>

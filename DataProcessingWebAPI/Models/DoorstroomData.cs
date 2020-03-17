@@ -86,5 +86,96 @@ namespace DataProcessingWebAPI.Models
         public Nullable<int> Vwo6MetDiploma_71 { get; set; }
         public Nullable<int> Vwo46ZonderDiploma_72 { get; set; }
         public Nullable<int> Praktijkonderwijs_73 { get; set; }
+
+        /// <summary>
+        /// Converts the database item into a api friendly item
+        /// </summary>
+        /// <param name="d">item to convert</param>
+        public static implicit operator DoorstroomData(DSDataSet d)
+        {
+            DataProcessingEntities db = new DataProcessingEntities();
+            DoorstroomData item = new DoorstroomData
+            {
+                Geslacht = db.DSGeslachts.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
+                MboLeerwegEnNiveau = db.DSMboLeerwegEnNiveaux.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
+                MboRichtingEnSector = db.DSMboRichtingEnSectors.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
+                Persoonskenmerken = db.DSPersoonsKenmerkens.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
+                Perioden = db.DSPeriodens.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
+                TotaalDoorstroomLeerling_1 = d.TotaalDoorstroomLeerling_1,
+                Leerjaar12_2 = d.Leerjaar12_2,
+                Vmbo3Totaal_3 = d.Vmbo3Totaal_3,
+                Totaal_4 = d.Totaal_4,
+                LandbouwBKG_5 = d.LandbouwBKG_5,
+                ZorgEnWelzijnBKG_6 = d.ZorgEnWelzijnBKG_6,
+                EconomieBKG_7 = d.EconomieBKG_7,
+                TechniekBKG_8 = d.TechniekBKG_8,
+                CombinatieBKG_9 = d.CombinatieBKG_9,
+                GeenSectorT_10 = d.GeenSectorT_10,
+                Totaal_11 = d.Totaal_11,
+                LandbouwBKG_12 = d.LandbouwBKG_12,
+                ZorgEnWelzijnBKG_13 = d.ZorgEnWelzijnBKG_13,
+                EconomieBKG_14 = d.EconomieBKG_14,
+                TechniekBKG_15 = d.TechniekBKG_15,
+                CombinatieBKG_16 = d.CombinatieBKG_16,
+                GeenSectorT_17 = d.GeenSectorT_17,
+                Totaal_18 = d.Totaal_18,
+                LandbouwBKG_19 = d.LandbouwBKG_19,
+                ZorgEnWelzijnBKG_20 = d.ZorgEnWelzijnBKG_20,
+                EconomieBKG_21 = d.EconomieBKG_21,
+                TechniekBKG_22 = d.TechniekBKG_22,
+                CombinatieBKG_23 = d.CombinatieBKG_23,
+                GeenSectorT_24 = d.GeenSectorT_24,
+                Totaal_25 = d.Totaal_25,
+                Totaal_26 = d.Totaal_26,
+                BasisberoepsgerichteLeerweg_27 = d.BasisberoepsgerichteLeerweg_27,
+                KaderberoepsgerichteLeerweg_28 = d.KaderberoepsgerichteLeerweg_28,
+                Totaal_29 = d.Totaal_29,
+                GemengdeLeerweg_30 = d.GemengdeLeerweg_30,
+                TheoretischeLeerweg_31 = d.TheoretischeLeerweg_31,
+                Totaal_32 = d.Totaal_32,
+                Totaal_33 = d.Totaal_33,
+                BasisberoepsgerichteLeerweg_34 = d.BasisberoepsgerichteLeerweg_34,
+                KaderberoepsgerichteLeerweg_35 = d.KaderberoepsgerichteLeerweg_35,
+                Totaal_36 = d.Totaal_36,
+                GemengdeLeerweg_37 = d.GemengdeLeerweg_37,
+                TheoretischeLeerweg_38 = d.TheoretischeLeerweg_38,
+                Totaal_39 = d.Totaal_39,
+                Landbouw_40 = d.Landbouw_40,
+                ZorgEnWelzijn_40 = d.ZorgEnWelzijn_40,
+                Economie_42 = d.Economie_42,
+                Techniek_43 = d.Techniek_43,
+                Combinatie_44 = d.Combinatie_44,
+                Totaal_45 = d.Totaal_45,
+                Landbouw_46 = d.Landbouw_46,
+                ZorgEnWelzijn_47 = d.ZorgEnWelzijn_47,
+                Economie_48 = d.Economie_48,
+                Techniek_49 = d.Techniek_49,
+                Combinatie_50 = d.Combinatie_50,
+                Totaal_51 = d.Totaal_51,
+                Landbouw_52 = d.Landbouw_52,
+                ZorgEnWelzijn_53 = d.ZorgEnWelzijn_53,
+                Economie_54 = d.Economie_54,
+                Techniek_55 = d.Techniek_55,
+                Combinatie_56 = d.Combinatie_56,
+                Totaal_57 = d.Totaal_57,
+                Totaal_58 = d.Totaal_58,
+                Landbouw_59 = d.Landbouw_59,
+                ZorgEnWelzijn_60 = d.ZorgEnWelzijn_60,
+                Economie_61 = d.Economie_61,
+                Techniek_62 = d.Techniek_62,
+                Combinatie_63 = d.Combinatie_63,
+                TheoretischeLeerweg_64 = d.TheoretischeLeerweg_64,
+                HavoVwoInclAlgLeerjr_65 = d.HavoVwoInclAlgLeerjr_65,
+                Havo4Totaal_66 = d.Havo4Totaal_66,
+                Havo5Totaal_67 = d.Havo5Totaal_67,
+                Havo5MetDiploma_68 = d.Havo5MetDiploma_68,
+                Havo5ZonderDiploma_69 = d.Havo5ZonderDiploma_69,
+                Vwo46Totaal_70 = d.Vwo46Totaal_70,
+                Vwo6MetDiploma_71 = d.Vwo6MetDiploma_71,
+                Vwo46ZonderDiploma_72 = d.Vwo46ZonderDiploma_72,
+                Praktijkonderwijs_73 = d.Praktijkonderwijs_73
+            };
+            return item;
+        }
     }
 }
