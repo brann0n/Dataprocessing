@@ -28,18 +28,36 @@ namespace DataProcessingWebAPI.Controllers
             return lijstje;
         }
 
+        /// <summary>
+        /// Get the data in a friendly readable format
+        /// </summary>
+        /// <param name="limit">the amount of items to get</param>
+        /// <param name="skip">the amount of items to skip</param>
+        /// <returns>a full list of Kenmerken items</returns>
         [Route("GetKenmerken/{limit?}/{skip?}")]
         public List<WBKenmerken> GetKenmerken(int limit = 100, int skip = 0)
         {
             return db.WBKenmerkens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
+        /// <summary>
+        /// Get the data in a friendly readable format
+        /// </summary>
+        /// <param name="limit">the amount of items to get</param>
+        /// <param name="skip">the amount of items to skip</param>
+        /// <returns>a full list of Perioden items</returns>
         [Route("GetPerioden/{limit?}/{skip?}")]
         public List<WBPerioden> GetPerioden(int limit = 100, int skip = 0)
         {
             return db.WBPeriodens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
+        /// <summary>
+        /// Get the data in a friendly readable format
+        /// </summary>
+        /// <param name="limit">the amount of items to get</param>
+        /// <param name="skip">the amount of items to skip</param>
+        /// <returns>a full list of Dataset items</returns>
         [Route("GetDataSet/{limit?}/{skip?}")]
         public List<WBDataSet> GetDataSet(int limit = 100, int skip = 0)
         {

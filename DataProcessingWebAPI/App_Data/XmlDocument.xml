@@ -556,31 +556,79 @@
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostHerkomst(DataProcessingWebAPI.ADHerkomst)">
             <summary>
-            Function to modify the underlying Herkomst dataset
+            Function to add a new record to the underlying Herkomst dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostPerioden(DataProcessingWebAPI.ADPerioden)">
             <summary>
-            Function to modify the underlying Perioden dataset
+            Function to add a new record to the underlying Perioden dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostGeslacht(DataProcessingWebAPI.ADGeslacht)">
             <summary>
-            Function to modify the underlying Geslacht dataset
+            Function to add a new record to the underlying Geslacht dataset
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostDataset(DataProcessingWebAPI.ADDataSet)">
             <summary>
+            Function to add a new record to the underlying dataset
+            </summary>
+            <param name="model">the changed model with keys to other tables</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PutHerkomst(DataProcessingWebAPI.ADHerkomst)">
+            <summary>
+            Function to modify the underlying Herkomst dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PutPerioden(DataProcessingWebAPI.ADPerioden)">
+            <summary>
+            Function to modify the underlying Perioden dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PutGeslacht(DataProcessingWebAPI.ADGeslacht)">
+            <summary>
+            Function to modify the underlying Geslacht dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PutDataset(DataProcessingWebAPI.ADDataSet)">
+            <summary>
             Function to modify the underlying dataset
             </summary>
             <param name="model">the changed model with keys to other tables</param>
             <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="T:DataProcessingWebAPI.Controllers.DataController">
+            <summary>
+            This controller inherits the ApiController class with some extra custom functions
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.ValidateAgainstSchemeAsync(System.String)">
+            <summary>
+            Checks the given schema agains the current raw data
+            </summary>
+            <param name="SchemeName">Name of the local scheme</param>
+            <returns>boolean that is true when data matches the scheme and false if it doesnt match</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.Response(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Creates a http response message with the provided string
+            </summary>
+            <param name="status"></param>
+            <param name="message"></param>
+            <returns></returns>
         </member>
         <member name="T:DataProcessingWebAPI.Controllers.DoorstroomController">
             <summary>

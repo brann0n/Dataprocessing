@@ -15,9 +15,5 @@ namespace DataProcessingWebAPI.Controllers
     {
         //reference to the EntityFramework classes that are connected to the database
         DataProcessingEntities db = new DataProcessingEntities();
-
-        
-
-
     }
 }
