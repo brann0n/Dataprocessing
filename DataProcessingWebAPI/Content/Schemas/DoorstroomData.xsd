@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ArrayOfDoorstroomData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DoorstroomData" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="BasisberoepsgerichteLeerweg_27"/>
+              <xs:element type="xs:int" name="BasisberoepsgerichteLeerweg_34"/>
+              <xs:element type="xs:int" name="CombinatieBKG_16"/>
+              <xs:element type="xs:int" name="CombinatieBKG_23"/>
+              <xs:element type="xs:int" name="CombinatieBKG_9"/>
+              <xs:element type="xs:int" name="Combinatie_44"/>
+              <xs:element type="xs:int" name="Combinatie_50"/>
+              <xs:element type="xs:int" name="Combinatie_56"/>
+              <xs:element type="xs:int" name="Combinatie_63"/>
+              <xs:element type="xs:int" name="EconomieBKG_14"/>
+              <xs:element type="xs:int" name="EconomieBKG_21"/>
+              <xs:element type="xs:int" name="EconomieBKG_7"/>
+              <xs:element type="xs:int" name="Economie_42"/>
+              <xs:element type="xs:int" name="Economie_48"/>
+              <xs:element type="xs:int" name="Economie_54"/>
+              <xs:element type="xs:int" name="Economie_61"/>
+              <xs:element type="xs:int" name="GeenSectorT_10"/>
+              <xs:element type="xs:int" name="GeenSectorT_17"/>
+              <xs:element type="xs:int" name="GeenSectorT_24"/>
+              <xs:element type="xs:int" name="GemengdeLeerweg_30"/>
+              <xs:element type="xs:int" name="GemengdeLeerweg_37"/>
+              <xs:element type="xs:string" name="Geslacht"/>
+              <xs:element type="xs:int" name="Havo4Totaal_66"/>
+              <xs:element type="xs:int" name="Havo5MetDiploma_68"/>
+              <xs:element type="xs:int" name="Havo5Totaal_67"/>
+              <xs:element type="xs:int" name="Havo5ZonderDiploma_69"/>
+              <xs:element type="xs:int" name="HavoVwoInclAlgLeerjr_65"/>
+              <xs:element type="xs:int" name="Id"/>
+              <xs:element type="xs:int" name="KaderberoepsgerichteLeerweg_28"/>
+              <xs:element type="xs:int" name="KaderberoepsgerichteLeerweg_35"/>
+              <xs:element type="xs:int" name="LandbouwBKG_12"/>
+              <xs:element type="xs:int" name="LandbouwBKG_19"/>
+              <xs:element type="xs:int" name="LandbouwBKG_5"/>
+              <xs:element type="xs:int" name="Landbouw_40"/>
+              <xs:element type="xs:int" name="Landbouw_46"/>
+              <xs:element type="xs:int" name="Landbouw_52"/>
+              <xs:element type="xs:int" name="Landbouw_59"/>
+              <xs:element type="xs:int" name="Leerjaar12_2"/>
+              <xs:element type="xs:string" name="MboLeerwegEnNiveau"/>
+              <xs:element type="xs:string" name="MboRichtingEnSector"/>
+              <xs:element type="xs:string" name="Perioden"/>
+              <xs:element type="xs:string" name="Persoonskenmerken"/>
+              <xs:element type="xs:int" name="Praktijkonderwijs_73"/>
+              <xs:element type="xs:int" name="TechniekBKG_15"/>
+              <xs:element type="xs:int" name="TechniekBKG_22"/>
+              <xs:element type="xs:int" name="TechniekBKG_8"/>
+              <xs:element type="xs:int" name="Techniek_43"/>
+              <xs:element type="xs:int" name="Techniek_49"/>
+              <xs:element type="xs:int" name="Techniek_55"/>
+              <xs:element type="xs:int" name="Techniek_62"/>
+              <xs:element type="xs:int" name="TheoretischeLeerweg_31"/>
+              <xs:element type="xs:int" name="TheoretischeLeerweg_38"/>
+              <xs:element type="xs:int" name="TheoretischeLeerweg_64"/>
+              <xs:element type="xs:int" name="TotaalDoorstroomLeerling_1"/>
+              <xs:element type="xs:int" name="Totaal_11"/>
+              <xs:element type="xs:int" name="Totaal_18"/>
+              <xs:element type="xs:int" name="Totaal_25"/>
+              <xs:element type="xs:int" name="Totaal_26"/>
+              <xs:element type="xs:int" name="Totaal_29"/>
+              <xs:element type="xs:int" name="Totaal_32"/>
+              <xs:element type="xs:int" name="Totaal_33"/>
+              <xs:element type="xs:int" name="Totaal_36"/>
+              <xs:element type="xs:int" name="Totaal_39"/>
+              <xs:element type="xs:int" name="Totaal_4"/>
+              <xs:element type="xs:int" name="Totaal_45"/>
+              <xs:element type="xs:int" name="Totaal_51"/>
+              <xs:element type="xs:int" name="Totaal_57"/>
+              <xs:element type="xs:int" name="Totaal_58"/>
+              <xs:element type="xs:int" name="Vmbo3Totaal_3"/>
+              <xs:element type="xs:int" name="Vwo46Totaal_70"/>
+              <xs:element type="xs:int" name="Vwo46ZonderDiploma_72"/>
+              <xs:element type="xs:int" name="Vwo6MetDiploma_71"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijnBKG_13"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijnBKG_20"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijnBKG_6"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijn_40"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijn_47"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijn_53"/>
+              <xs:element type="xs:int" name="ZorgEnWelzijn_60"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

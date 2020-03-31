@@ -4,6 +4,14 @@
         <name>DataProcessingWebAPI</name>
     </assembly>
     <members>
+        <member name="M:DataProcessingWebAPI.ApiExceptionHandlerAttribute.Response(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Creates a http response message with the provided string
+            </summary>
+            <param name="status"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="M:DataProcessingWebAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
             Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
@@ -509,7 +517,7 @@
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.DeleteDataset(System.Int32)">
             <summary>
-            Delete a record from the Geslacht table
+            Delete a record from the Dataset table
             </summary>
             <param name="id">key of the delete item</param>
             <returns>200 or 404</returns>
@@ -556,35 +564,35 @@
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostHerkomst(DataProcessingWebAPI.ADHerkomst)">
             <summary>
-            Function to add a new record to the underlying Herkomst dataset
+            Function to add a new record to the underlying Herkomst dataset using validation
             </summary>
             <param name="model">the changed model</param>
-            <returns>http response message with status code 200 or 500</returns>
+            <returns>http response message with status code 200 or 400</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostPerioden(DataProcessingWebAPI.ADPerioden)">
             <summary>
             Function to add a new record to the underlying Perioden dataset
             </summary>
             <param name="model">the changed model</param>
-            <returns>http response message with status code 200 or 500</returns>
+            <returns>http response message with status code 200 or 400</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostGeslacht(DataProcessingWebAPI.ADGeslacht)">
             <summary>
             Function to add a new record to the underlying Geslacht dataset
             </summary>
             <param name="model">the changed model</param>
-            <returns>http response message with status code 200 or 500</returns>
+            <returns>http response message with status code 200 or 400</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PostDataset(DataProcessingWebAPI.ADDataSet)">
             <summary>
             Function to add a new record to the underlying dataset
             </summary>
             <param name="model">the changed model with keys to other tables</param>
-            <returns>http response message with status code 200 or 500</returns>
+            <returns>http response message with status code 200 or 400</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.PutHerkomst(DataProcessingWebAPI.ADHerkomst)">
             <summary>
-            Function to modify the underlying Herkomst dataset
+            Function to modify the underlying Herkomst dataset using validation
             </summary>
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 500</returns>
@@ -619,7 +627,7 @@
             <summary>
             Checks the given schema agains the current raw data
             </summary>
-            <param name="SchemeName">Name of the local scheme</param>
+            <param name="SchemaName">Name of the local scheme</param>
             <returns>boolean that is true when data matches the scheme and false if it doesnt match</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.DataController.Response(System.Net.HttpStatusCode,System.String)">
@@ -685,10 +693,163 @@
             <param name="skip">the amount of items to skip</param>
             <returns>a full list of Doorstroom items</returns>
         </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetGeslacht(System.Int32,System.Int32)">
+            <summary>
+            Get Geslacht Dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Geslacht items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetMboLeerwegEnNiveaus(System.Int32,System.Int32)">
+            <summary>
+            Get MboLeerwegEnNiveaus Dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of MboLeerwegEnNiveaus items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetMboRichtingEnSectors(System.Int32,System.Int32)">
+            <summary>
+            Get MboRichtingEnSectors Dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of MboRichtingEnSectors items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetPerioden(System.Int32,System.Int32)">
+            <summary>
+            Get Perioden dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Perioden items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetPersoonsKenmerken(System.Int32,System.Int32)">
+            <summary>
+            Get Persoonskenmerken dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of PersoonsKenmerken items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.GetDataSet(System.Int32,System.Int32)">
+            <summary>
+            Get the actual dataset
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Dataset items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostPerioden(DataProcessingWebAPI.DSPerioden)">
+            <summary>
+            Function to add a new record to the underlying Perioden dataset using validation
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostGeslacht(DataProcessingWebAPI.DSGeslacht)">
+            <summary>
+            Function to add a new record to the underlying Kenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostMboLeerwegEnNiveau(DataProcessingWebAPI.DSMboLeerwegEnNiveau)">
+            <summary>
+            Function to add a new record to the underlying MboLeerwegEnNiveau dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostMboRichtingEnSector(DataProcessingWebAPI.DSMboRichtingEnSector)">
+            <summary>
+            Function to add a new record to the underlying MboRichtingEnSector dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostPersoonsKenmerken(DataProcessingWebAPI.DSPersoonsKenmerken)">
+            <summary>
+            Function to add a new record to the underlying PersoonsKenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PostDataset(DataProcessingWebAPI.DSDataSet)">
+            <summary>
+            Function to add a new record to the underlying Dataset dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutPerioden(DataProcessingWebAPI.DSPerioden)">
+            <summary>
+            Function to modify the underlying Perioden dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutGeslacht(DataProcessingWebAPI.DSGeslacht)">
+            <summary>
+            Function to modify the underlying Kenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutMboLeerwegEnNiveau(DataProcessingWebAPI.DSMboLeerwegEnNiveau)">
+            <summary>
+            Function to modify the underlying MboLeerwegEnNiveau dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutMboRichtingEnSector(DataProcessingWebAPI.DSMboRichtingEnSector)">
+            <summary>
+            Function to modify the underlying MboRichtingEnSector dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutPersoonsKenmerken(DataProcessingWebAPI.DSPersoonsKenmerken)">
+            <summary>
+            Function to modify the underlying PersoonsKenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.PutDataset(DataProcessingWebAPI.DSDataSet)">
+            <summary>
+            Function to modify the underlying Dataset dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
         <member name="T:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController">
             <summary>
             The WerkzameBeroepsbevolking controller, this controller can do REST functions on the WerkzameBeroepsbevolking tables.
             </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.DeleteKenmerken(System.String)">
+            <summary>
+            Delete a record from the Kenmerken table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.DeletePerioden(System.String)">
+            <summary>
+            Delete a record from the Perioden table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.DeleteDataset(System.Int32)">
+            <summary>
+            Delete a record from the Dataset table
+            </summary>
+            <param name="id">key of the delete item</param>
+            <returns>200 or 404</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.Get(System.Int32,System.Int32)">
             <summary>
@@ -697,6 +858,72 @@
             <param name="limit">the amount of items to get</param>
             <param name="skip">the amount of items to skip</param>
             <returns>a full list of WerkzameBeroepsbevolking items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.GetKenmerken(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Kenmerken items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.GetPerioden(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Perioden items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.GetDataSet(System.Int32,System.Int32)">
+            <summary>
+            Get the data in a friendly readable format
+            </summary>
+            <param name="limit">the amount of items to get</param>
+            <param name="skip">the amount of items to skip</param>
+            <returns>a full list of Dataset items</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PostPerioden(DataProcessingWebAPI.WBPerioden)">
+            <summary>
+            Function to add a new record to the underlying Perioden dataset using validation
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PostKenmerken(DataProcessingWebAPI.WBKenmerken)">
+            <summary>
+            Function to add a new record to the underlying Kenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PostDataset(DataProcessingWebAPI.WBDataSet)">
+            <summary>
+            Function to add a new record to the underlying Dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PutPerioden(DataProcessingWebAPI.WBPerioden)">
+            <summary>
+            Function to modify the underlying Perioden dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 500</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PutKenmerken(DataProcessingWebAPI.WBKenmerken)">
+            <summary>
+            Function to modify the underlying Kenmerken dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.PutDataset(DataProcessingWebAPI.WBDataSet)">
+            <summary>
+            Function to modify the underlying Dataset
+            </summary>
+            <param name="model">the changed model</param>
+            <returns>http response message with status code 200 or 400</returns>
         </member>
         <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Id">
             <summary>
@@ -769,7 +996,7 @@
             <summary>
             does conversion from the other object to this object.
             </summary>
-            <param name="bDataSet">Database object</param>
+            <param name="b">Database object</param>
         </member>
     </members>
 </doc>

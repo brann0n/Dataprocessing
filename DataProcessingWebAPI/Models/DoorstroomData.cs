@@ -96,6 +96,7 @@ namespace DataProcessingWebAPI.Models
             DataProcessingEntities db = new DataProcessingEntities();
             DoorstroomData item = new DoorstroomData
             {
+                Id = d.Id,
                 Geslacht = db.DSGeslachts.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
                 MboLeerwegEnNiveau = db.DSMboLeerwegEnNiveaux.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
                 MboRichtingEnSector = db.DSMboRichtingEnSectors.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,

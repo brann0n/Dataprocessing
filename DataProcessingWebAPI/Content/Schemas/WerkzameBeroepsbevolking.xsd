@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ArrayOfWerkzameBeroepsbevolking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WerkzameBeroepsbevolking" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="CreatieveZakelijkeDienstverlening"/>
+              <xs:element type="xs:int" name="Id"/>
+              <xs:element type="xs:string" name="Kenmerken"/>
+              <xs:element type="xs:int" name="Kunsten"/>
+              <xs:element type="xs:int" name="MediaEnEntertainment"/>
+              <xs:element type="xs:int" name="OverigeCreatieveBeroepen"/>
+              <xs:element type="xs:string" name="Perioden"/>
+              <xs:element type="xs:int" name="TotaalCreatieveBeroepen"/>
+              <xs:element type="xs:int" name="WerkzPersMetBeroepOnbekend"/>
+              <xs:element type="xs:int" name="WerkzPersMetNietCreatieveBeroep"/>
+              <xs:element type="xs:int" name="WerkzameBeroepsbevolkingTotaal"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

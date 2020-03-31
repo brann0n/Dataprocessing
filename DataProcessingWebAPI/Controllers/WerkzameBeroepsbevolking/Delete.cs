@@ -8,38 +8,20 @@ using System.Web.Http;
 
 namespace DataProcessingWebAPI.Controllers
 {
-    public partial class AlcolholEnDrugsController
+    public partial class WerkzameBeroepsbevolkingController
     {
         /// <summary>
-        /// Delete a record from the Geslacht table
+        /// Delete a record from the Kenmerken table
         /// </summary>
         /// <param name="id">key of the delete item</param>
         /// <returns>200 or 404</returns>
-        [HttpDelete, Route("DeleteGeslacht/{id}")]
-        public HttpResponseMessage DeleteGeslacht(string id)
+        [HttpDelete, Route("DeleteKenmerken/{id}")]
+        public HttpResponseMessage DeleteKenmerken(string id)
         {
-            var item = db.ADGeslachts.FirstOrDefault(n => n.Key == id);
+            var item = db.WBKenmerkens.FirstOrDefault(n => n.Key == id);
             if (item != null)
             {
-                db.ADGeslachts.Remove(item);
-                db.SaveChanges();
-                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
-            }
-            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
-        }
-
-        /// <summary>
-        /// Delete a record from the Herkomst table
-        /// </summary>
-        /// <param name="id">key of the delete item</param>
-        /// <returns>200 or 404</returns>
-        [HttpDelete, Route("DeleteHerkomst/{id}")]
-        public HttpResponseMessage DeleteHerkomst(string id)
-        {
-            var item = db.ADHerkomsts.FirstOrDefault(n => n.Key == id);
-            if (item != null)
-            {
-                db.ADHerkomsts.Remove(item);
+                db.WBKenmerkens.Remove(item);
                 db.SaveChanges();
                 return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
@@ -54,10 +36,10 @@ namespace DataProcessingWebAPI.Controllers
         [HttpDelete, Route("DeletePerioden/{id}")]
         public HttpResponseMessage DeletePerioden(string id)
         {
-            var item = db.ADPeriodens.FirstOrDefault(n => n.Key == id);
+            var item = db.WBPeriodens.FirstOrDefault(n => n.Key == id);
             if (item != null)
             {
-                db.ADPeriodens.Remove(item);
+                db.WBPeriodens.Remove(item);
                 db.SaveChanges();
                 return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
@@ -72,10 +54,10 @@ namespace DataProcessingWebAPI.Controllers
         [HttpDelete, Route("DeleteDataset/{id}")]
         public HttpResponseMessage DeleteDataset(int id)
         {
-            var item = db.ADDataSets.FirstOrDefault(n => n.Id == id);
+            var item = db.WBDataSets.FirstOrDefault(n => n.Id == id);
             if (item != null)
             {
-                db.ADDataSets.Remove(item);
+                db.WBDataSets.Remove(item);
                 db.SaveChanges();
                 return Response(HttpStatusCode.OK, $"item {item.Id} was removed");
             }

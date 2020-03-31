@@ -15,7 +15,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of WerkzameBeroepsbevolking items</returns>
-        [Route("Get/{limit?}/{skip?}")]
+        [HttpGet, Route("Get/{limit?}/{skip?}")]
         public List<WerkzameBeroepsbevolking> Get(int limit = 100, int skip = 0)
         {
             var table = db.WBDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
@@ -34,7 +34,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Kenmerken items</returns>
-        [Route("GetKenmerken/{limit?}/{skip?}")]
+        [HttpGet, Route("GetKenmerken/{limit?}/{skip?}")]
         public List<WBKenmerken> GetKenmerken(int limit = 100, int skip = 0)
         {
             return db.WBKenmerkens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
@@ -46,7 +46,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Perioden items</returns>
-        [Route("GetPerioden/{limit?}/{skip?}")]
+        [HttpGet, Route("GetPerioden/{limit?}/{skip?}")]
         public List<WBPerioden> GetPerioden(int limit = 100, int skip = 0)
         {
             return db.WBPeriodens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
@@ -58,7 +58,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Dataset items</returns>
-        [Route("GetDataSet/{limit?}/{skip?}")]
+        [HttpGet, Route("GetDataSet/{limit?}/{skip?}")]
         public List<WBDataSet> GetDataSet(int limit = 100, int skip = 0)
         {
             return db.WBDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit).ToList();

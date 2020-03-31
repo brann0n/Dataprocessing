@@ -15,7 +15,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Doorstroom items</returns>
-        [Route("Get/{limit?}/{skip?}")]
+        [HttpGet, Route("Get/{limit?}/{skip?}")]
         public List<DoorstroomData> Get(int limit = 100, int skip = 0)
         {
             var table = db.DSDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
@@ -29,72 +29,72 @@ namespace DataProcessingWebAPI.Controllers
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get Geslacht Dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Geslacht items</returns>
-        [Route("GetGeslacht/{limit?}/{skip?}")]
+        [HttpGet, Route("GetGeslacht/{limit?}/{skip?}")]
         public List<DSGeslacht> GetGeslacht(int limit = 100, int skip = 0)
         {
             return db.DSGeslachts.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get MboLeerwegEnNiveaus Dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of MboLeerwegEnNiveaus items</returns>
-        [Route("GetMboLeerwegEnNiveaus/{limit?}/{skip?}")]
+        [HttpGet, Route("GetMboLeerwegEnNiveaus/{limit?}/{skip?}")]
         public List<DSMboLeerwegEnNiveau> GetMboLeerwegEnNiveaus(int limit = 100, int skip = 0)
         {
             return db.DSMboLeerwegEnNiveaux.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get MboRichtingEnSectors Dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of MboRichtingEnSectors items</returns>
-        [Route("GetMboRichtingEnSectors/{limit?}/{skip?}")]
+        [HttpGet, Route("GetMboRichtingEnSectors/{limit?}/{skip?}")]
         public List<DSMboRichtingEnSector> GetMboRichtingEnSectors(int limit = 100, int skip = 0)
         {
             return db.DSMboRichtingEnSectors.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get Perioden dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Perioden items</returns>
-        [Route("GetPerioden/{limit?}/{skip?}")]
+        [HttpGet, Route("GetPerioden/{limit?}/{skip?}")]
         public List<DSPerioden> GetPerioden(int limit = 100, int skip = 0)
         {
             return db.DSPeriodens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get Persoonskenmerken dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of PersoonsKenmerken items</returns>
-        [Route("GetPersoonsKenmerken/{limit?}/{skip?}")]
+        [HttpGet, Route("GetPersoonsKenmerken/{limit?}/{skip?}")]
         public List<DSPersoonsKenmerken> GetPersoonsKenmerken(int limit = 100, int skip = 0)
         {
             return db.DSPersoonsKenmerkens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
         }
 
         /// <summary>
-        /// Get the data in a friendly readable format
+        /// Get the actual dataset
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Dataset items</returns>
-        [Route("GetDataSet/{limit?}/{skip?}")]
+        [HttpGet, Route("GetDataSet/{limit?}/{skip?}")]
         public List<DSDataSet> GetDataSet(int limit = 100, int skip = 0)
         {
             return db.DSDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit).ToList();

@@ -23,9 +23,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSGeslachts.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSMboLeerwegEnNiveaux.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSMboRichtingEnSectors.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSPeriodens.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
 
         /// <summary>
@@ -95,9 +95,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSPersoonsKenmerkens.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Title} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
 
         /// <summary>
@@ -113,9 +113,9 @@ namespace DataProcessingWebAPI.Controllers
             {
                 db.DSDataSets.Remove(item);
                 db.SaveChanges();
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Response(HttpStatusCode.OK, $"item {item.Id} was removed");
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return Response(HttpStatusCode.NotFound, $"Item with id {id} was not found!");
         }
     }
 }

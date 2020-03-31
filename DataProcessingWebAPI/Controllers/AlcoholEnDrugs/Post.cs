@@ -13,10 +13,10 @@ namespace DataProcessingWebAPI.Controllers
     public partial class AlcolholEnDrugsController
     {
         /// <summary>
-        /// Function to add a new record to the underlying Herkomst dataset
+        /// Function to add a new record to the underlying Herkomst dataset using validation
         /// </summary>
         /// <param name="model">the changed model</param>
-        /// <returns>http response message with status code 200 or 500</returns>
+        /// <returns>http response message with status code 200 or 400</returns>
         [HttpPost]
         [Route("PostHerkomst")]
         public async Task<HttpResponseMessage> PostHerkomst(ADHerkomst model)
@@ -39,7 +39,7 @@ namespace DataProcessingWebAPI.Controllers
         /// Function to add a new record to the underlying Perioden dataset
         /// </summary>
         /// <param name="model">the changed model</param>
-        /// <returns>http response message with status code 200 or 500</returns>
+        /// <returns>http response message with status code 200 or 400</returns>
         [HttpPost]
         [Route("PostPerioden")]
         public HttpResponseMessage PostPerioden(ADPerioden model)
@@ -60,7 +60,7 @@ namespace DataProcessingWebAPI.Controllers
         /// Function to add a new record to the underlying Geslacht dataset
         /// </summary>
         /// <param name="model">the changed model</param>
-        /// <returns>http response message with status code 200 or 500</returns>
+        /// <returns>http response message with status code 200 or 400</returns>
         [HttpPost]
         [Route("PostGeslacht")]
         public HttpResponseMessage PostGeslacht(ADGeslacht model)
@@ -81,7 +81,7 @@ namespace DataProcessingWebAPI.Controllers
         /// Function to add a new record to the underlying dataset
         /// </summary>
         /// <param name="model">the changed model with keys to other tables</param>
-        /// <returns>http response message with status code 200 or 500</returns>
+        /// <returns>http response message with status code 200 or 400</returns>
         [HttpPost]
         [Route("PostDataset")]
         public HttpResponseMessage PostDataset(ADDataSet model)

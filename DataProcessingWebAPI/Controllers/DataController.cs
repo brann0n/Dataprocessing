@@ -18,12 +18,13 @@ namespace DataProcessingWebAPI.Controllers
     /// <summary>
     /// This controller inherits the ApiController class with some extra custom functions
     /// </summary>
+    [ApiExceptionHandler]
     public abstract class DataController : ApiController
     {
         /// <summary>
         /// Checks the given schema agains the current raw data
         /// </summary>
-        /// <param name="SchemeName">Name of the local scheme</param>
+        /// <param name="SchemaName">Name of the local scheme</param>
         /// <returns>boolean that is true when data matches the scheme and false if it doesnt match</returns>
         protected async Task<bool> ValidateAgainstSchemeAsync(string SchemaName)
         {
@@ -51,7 +52,7 @@ namespace DataProcessingWebAPI.Controllers
             }
             else
             {
-                throw new InvalidDataException("This API only accepts application/xml and application/json");
+                throw new ValidationException<string>("This API only accepts application/xml and application/json");
             }
         }
 
@@ -61,14 +62,19 @@ namespace DataProcessingWebAPI.Controllers
             schema.Add("http://schemas.datacontract.org/2004/07/DataProcessingWebAPI", GetSchemaPath(SchemaName, ".xsd"));
 
             XDocument doc = XDocument.Parse(Data);
-
-            bool errorInValidation = false;       
+            List<System.Xml.Schema.ValidationEventArgs> valErrors = new List<System.Xml.Schema.ValidationEventArgs>();     
             doc.Validate(schema, (s, e) => {
-                errorInValidation = true;
+                valErrors.Add(e);
             });
 
-
-            return !errorInValidation;
+            if(valErrors.Count != 0)
+            {
+                throw new ValidationException<System.Xml.Schema.ValidationEventArgs>("Errors while validating XML.", valErrors);
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private bool ValidateJson(string SchemaName, string Data)
@@ -76,12 +82,21 @@ namespace DataProcessingWebAPI.Controllers
             WebClient client = new WebClient();
             JObject obj = JObject.Parse(Data);
             JSchema schema = JSchema.Parse(client.DownloadString(GetSchemaPath(SchemaName, ".json")));
-            bool errorInValidation = false;
+            List<SchemaValidationEventArgs> valErrors = new List<SchemaValidationEventArgs>();
             obj.Validate(schema, (s, e) => {
-                errorInValidation = true;
+                valErrors.Add(e);
             });
+
             client.Dispose();
-            return !errorInValidation;
+
+            if (valErrors.Count != 0)
+            {
+                throw new ValidationException<SchemaValidationEventArgs>("Errors while validating JSON.", valErrors);
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private string GetSchemaPath(string schema, string fileExtension)
@@ -101,9 +116,11 @@ namespace DataProcessingWebAPI.Controllers
         /// <returns></returns>
         protected HttpResponseMessage Response(HttpStatusCode status, string message)
         {
-            var res = new HttpResponseMessage();
-            res.StatusCode = status;
-            res.Content = new StringContent(message);
+            HttpResponseMessage res = new HttpResponseMessage
+            {
+                StatusCode = status,
+                Content = new StringContent(message)
+            };
             return res;
         }
     }

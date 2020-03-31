@@ -22,12 +22,13 @@ namespace DataProcessingWebAPI.Models
         /// <summary>
         /// does conversion from the other object to this object.
         /// </summary>
-        /// <param name="bDataSet">Database object</param>
+        /// <param name="b">Database object</param>
         public static implicit operator WerkzameBeroepsbevolking(WBDataSet b)
         {
             DataProcessingEntities db = new DataProcessingEntities();
             WerkzameBeroepsbevolking item = new WerkzameBeroepsbevolking()
             {
+                Id = b.Id,
                 Kenmerken = db.WBKenmerkens.FirstOrDefault(n => n.Key == b.Kenmerken).Title,
                 Perioden = db.WBPeriodens.FirstOrDefault(n => n.Key == b.Perioden).Title,
                 WerkzameBeroepsbevolkingTotaal = b.WerkzameBeroepsbevolkingTotaal,

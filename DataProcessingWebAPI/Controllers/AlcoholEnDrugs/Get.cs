@@ -13,7 +13,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of AlcoholEnDrugs items</returns>
-        [Route("Get/{limit?}/{skip?}")]
+        [HttpGet, Route("Get/{limit?}/{skip?}")]
         public List<AlcoholEnDrugs> Get(int limit = 100, int skip = 0)
         {
             var table = db.ADDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
@@ -31,7 +31,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">items to get</param>
         /// <param name="skip">items to skip</param>
         /// <returns>list of items</returns>
-        [Route("GetHerkomst/{limit?}/{skip?}")]
+        [HttpGet, Route("GetHerkomst/{limit?}/{skip?}")]
         public List<ADHerkomst> GetHerkomst(int limit = 100, int skip = 0)
         {
             return db.ADHerkomsts.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
@@ -43,7 +43,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">items to get</param>
         /// <param name="skip">items to skip</param>
         /// <returns>list of items</returns>
-        [Route("GetGeslacht/{limit?}/{skip?}")]
+        [HttpGet, Route("GetGeslacht/{limit?}/{skip?}")]
         public List<ADGeslacht> GetGeslacht(int limit = 100, int skip = 0)
         {
             return db.ADGeslachts.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
@@ -55,7 +55,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">items to get</param>
         /// <param name="skip">items to skip</param>
         /// <returns>list of items</returns>
-        [Route("GetPerioden/{limit?}/{skip?}")]
+        [HttpGet, Route("GetPerioden/{limit?}/{skip?}")]
         public List<ADPerioden> GetPerioden(int limit = 100, int skip = 0)
         {
             return db.ADPeriodens.OrderBy(n => n.Key).Skip(skip).Take(limit).ToList();
@@ -67,7 +67,7 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="limit">items to get</param>
         /// <param name="skip">items to skip</param>
         /// <returns>list of items</returns>
-        [Route("GetDataSet/{limit?}/{skip?}")]
+        [HttpGet, Route("GetDataSet/{limit?}/{skip?}")]
         public List<ADDataSet> GetDataSet(int limit = 100, int skip = 0)
         {
             return db.ADDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit).ToList();

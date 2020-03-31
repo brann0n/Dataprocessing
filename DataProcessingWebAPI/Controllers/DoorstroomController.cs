@@ -12,11 +12,9 @@ namespace DataProcessingWebAPI.Controllers
     /// The doorstroom controller, this controller can do REST functions on the Doorstroom tables.
     /// </summary>
     [RoutePrefix("api/Doorstroom")]
-    public partial class DoorstroomController : ApiController
+    public partial class DoorstroomController : DataController
     {
         //reference to the EntityFramework classes that are connected to the database
-        DataProcessingEntities db = new DataProcessingEntities();
-
-       
+        DataProcessingEntities db = new DataProcessingEntities();     
     }
 }
