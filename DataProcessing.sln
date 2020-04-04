@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessingWebAPI", "Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessingDataImporter", "DataProcessingDataImporter\DataProcessingDataImporter.csproj", "{A7E8EC92-73D1-4887-8024-47A470BBF09F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessingClient", "DataProcessingClient\DataProcessingClient.csproj", "{A8753C9F-92AE-441F-A83F-20CBDFA85E4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A7E8EC92-73D1-4887-8024-47A470BBF09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7E8EC92-73D1-4887-8024-47A470BBF09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7E8EC92-73D1-4887-8024-47A470BBF09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8753C9F-92AE-441F-A83F-20CBDFA85E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8753C9F-92AE-441F-A83F-20CBDFA85E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8753C9F-92AE-441F-A83F-20CBDFA85E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8753C9F-92AE-441F-A83F-20CBDFA85E4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
