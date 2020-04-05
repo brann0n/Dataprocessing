@@ -30,13 +30,10 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbSettings = new System.Windows.Forms.GroupBox();
             this.tbStats = new System.Windows.Forms.TextBox();
             this.lblStats = new System.Windows.Forms.Label();
@@ -44,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.trbMaxRecords = new System.Windows.Forms.TrackBar();
-            this.btnSave = new System.Windows.Forms.Button();
             this.tbHostUrl = new System.Windows.Forms.TextBox();
             this.lblAPIUrl = new System.Windows.Forms.Label();
             this.lblDataformat = new System.Windows.Forms.Label();
@@ -68,7 +64,6 @@
             this.gbSettings.Controls.Add(this.label2);
             this.gbSettings.Controls.Add(this.label1);
             this.gbSettings.Controls.Add(this.trbMaxRecords);
-            this.gbSettings.Controls.Add(this.btnSave);
             this.gbSettings.Controls.Add(this.tbHostUrl);
             this.gbSettings.Controls.Add(this.lblAPIUrl);
             this.gbSettings.Controls.Add(this.lblDataformat);
@@ -87,7 +82,7 @@
             this.tbStats.Multiline = true;
             this.tbStats.Name = "tbStats";
             this.tbStats.ReadOnly = true;
-            this.tbStats.Size = new System.Drawing.Size(313, 110);
+            this.tbStats.Size = new System.Drawing.Size(313, 153);
             this.tbStats.TabIndex = 11;
             // 
             // lblStats
@@ -137,16 +132,6 @@
             this.trbMaxRecords.Value = 1;
             this.trbMaxRecords.Scroll += new System.EventHandler(this.trbMaxRecords_Scroll);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(19, 250);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(313, 37);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // tbHostUrl
             // 
             this.tbHostUrl.Location = new System.Drawing.Point(19, 90);
@@ -176,12 +161,10 @@
             // rbXML
             // 
             this.rbXML.AutoSize = true;
-            this.rbXML.Checked = true;
             this.rbXML.Location = new System.Drawing.Point(19, 53);
             this.rbXML.Name = "rbXML";
             this.rbXML.Size = new System.Drawing.Size(47, 17);
             this.rbXML.TabIndex = 1;
-            this.rbXML.TabStop = true;
             this.rbXML.Text = "XML";
             this.rbXML.UseVisualStyleBackColor = true;
             this.rbXML.CheckedChanged += new System.EventHandler(this.rbXML_CheckedChanged);
@@ -189,57 +172,57 @@
             // rbJson
             // 
             this.rbJson.AutoSize = true;
+            this.rbJson.Checked = true;
             this.rbJson.Location = new System.Drawing.Point(19, 30);
             this.rbJson.Name = "rbJson";
             this.rbJson.Size = new System.Drawing.Size(53, 17);
             this.rbJson.TabIndex = 0;
+            this.rbJson.TabStop = true;
             this.rbJson.Text = "JSON";
             this.rbJson.UseVisualStyleBackColor = true;
             // 
             // chartAD1
             // 
+            this.chartAD1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chartAD1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Name = "Legend1";
             this.chartAD1.Legends.Add(legend1);
             this.chartAD1.Location = new System.Drawing.Point(518, 12);
             this.chartAD1.Name = "chartAD1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartAD1.Series.Add(series1);
             this.chartAD1.Size = new System.Drawing.Size(496, 300);
             this.chartAD1.TabIndex = 1;
-            this.chartAD1.Text = "Alcohol en Drugs Gebruik onder scholieren";
             // 
             // chart2
             // 
+            this.chart2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.Title = "Jaar";
+            chartArea2.AxisY.Title = "Aantal personen";
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(12, 318);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(496, 300);
             this.chart2.TabIndex = 1;
-            this.chart2.Text = "chart1";
             // 
             // chart3
             // 
+            this.chart3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.Title = "Jaar";
+            chartArea3.AxisY.Title = "Aantal personen x1000";
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
             chartArea3.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.Transparent;
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
             this.chart3.Location = new System.Drawing.Point(518, 318);
             this.chart3.Name = "chart3";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart3.Series.Add(series3);
             this.chart3.Size = new System.Drawing.Size(496, 300);
             this.chart3.TabIndex = 1;
             this.chart3.Text = "chart1";
@@ -248,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 624);
+            this.ClientSize = new System.Drawing.Size(1025, 632);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.chartAD1);
@@ -272,7 +255,6 @@
         private System.Windows.Forms.RadioButton rbJson;
         private System.Windows.Forms.Label lblAPIUrl;
         private System.Windows.Forms.Label lblDataformat;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox tbHostUrl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trbMaxRecords;

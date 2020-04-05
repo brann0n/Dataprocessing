@@ -1,9 +1,6 @@
 ﻿using DataProcessingClient.Models;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
@@ -76,7 +73,7 @@ namespace DataProcessingClient.DataHandler
             {
                 DataForm.ReportError(e);
                 return null;
-            }            
+            }
         }
 
         internal override void SetData(DoorstroomDataDataSet data)

@@ -1,9 +1,6 @@
 ﻿using DataProcessingClient.Models;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
@@ -42,7 +39,7 @@ namespace DataProcessingClient.DataHandler
             if (data == null || Count == 0)
             {
                 AlcoholEnDrugsDataSet _data = DownloadData($"api/AlcoholEnDrugs/Get/{MaxRecords}");
-                if(_data != null)
+                if (_data != null)
                 {
                     SetData(_data);
                     return _data;
@@ -82,7 +79,7 @@ namespace DataProcessingClient.DataHandler
                 DataForm.ReportError(e);
                 return null;
             }
-            
+
         }
     }
 }

@@ -21,9 +21,19 @@ namespace DataProcessingClient
         private DoorstroomHandler doorstroom;
         private WerkzameBeroepsBevolkingHandler werkzameBeroeps;
 
+        /// <summary>
+        /// The static event that each thread subscribes to
+        /// </summary>
         private static event ReportErrorEventHandler errorHandler;
 
+        /// <summary>
+        /// DataFormat enum with either Json or XML
+        /// </summary>
         public DataFormat Format { get => (rbXML.Checked) ? DataFormat.XML : DataFormat.JSON; }
+
+        /// <summary>
+        /// The max amount of records this Form may retrieve from the API
+        /// </summary>
         public int MaxRecords { get => trbMaxRecords.Value * 100; }
 
         public DataForm()
@@ -33,16 +43,27 @@ namespace DataProcessingClient
             errorHandler += OnErrorReported;
         }
 
+        /// <summary>
+        /// Method that is called on the UI thread that shows the error
+        /// </summary>
+        /// <param name="exception"></param>
         private void OnErrorReported(Exception exception)
         {
             MessageBox.Show(exception.Message, "Error occured during the data retrieval", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Static void to report errors to the UI from anywhere in the code
+        /// </summary>
+        /// <param name="exception">The exception you wanna show</param>
         public static void ReportError(Exception exception)
         {
             errorHandler(exception);
         }
 
+        /// <summary>
+        /// Does a refresh of data and then draws that data, async so it doesnt freeze the UI thread
+        /// </summary>
         public async void RefreshAsync()
         {
             alcoholEnDrugs = new AlcoholEnDrugsHandler(tbHostUrl.Text, Format, MaxRecords);
@@ -57,6 +78,9 @@ namespace DataProcessingClient
             WriteStats();
         }
 
+        /// <summary>
+        /// Writes a label to the UI
+        /// </summary>
         public void WriteStats()
         {
             int ADcount = alcoholEnDrugs.Count;
@@ -73,13 +97,9 @@ namespace DataProcessingClient
             tbStats.Text = builder.ToString();
         }
 
-        private void ResetData()
-        {
-            alcoholEnDrugs = new AlcoholEnDrugsHandler(tbHostUrl.Text, Format, MaxRecords);
-            doorstroom = new DoorstroomHandler(tbHostUrl.Text, Format, MaxRecords);
-            werkzameBeroeps = new WerkzameBeroepsBevolkingHandler(tbHostUrl.Text, Format, MaxRecords);
-        }
-
+        /// <summary>
+        /// Checks if there is data and then calls the individual draw functions for each graph
+        /// </summary>
         private void DrawData()
         {
             List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD = alcoholEnDrugs.GetData()?.AlcoholEnDrugsArray?.ToList();
@@ -93,6 +113,7 @@ namespace DataProcessingClient
                 {
                     DrawChartAD1(AD, DS, WB);
                     DrawChart2(AD, DS, WB);
+                    DrawChart3(AD, DS, WB);
                 }
                 else
                 {
@@ -109,6 +130,12 @@ namespace DataProcessingClient
 
         }
 
+        /// <summary>
+        /// Render Graph 1
+        /// </summary>
+        /// <param name="AD">List of ArrayOfAlcoholEnDrugsAlcoholEnDrugs</param>
+        /// <param name="DS">List of ArrayOfDoorstroomDataDoorstroomData</param>
+        /// <param name="WB">List of ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking</param>
         public void DrawChartAD1(List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD, List<ArrayOfDoorstroomDataDoorstroomData> DS, List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB)
         {
             Dictionary<string, double> ADAvarageBinge = new Dictionary<string, double>();
@@ -144,21 +171,105 @@ namespace DataProcessingClient
             chartAD1.ChartAreas[0].AxisX.IsMarginVisible = false;
             chartAD1.ChartAreas[0].RecalculateAxesScale();
         }
+
+        /// <summary>
+        /// Render Graph 2
+        /// </summary>
+        /// <param name="AD">List of ArrayOfAlcoholEnDrugsAlcoholEnDrugs</param>
+        /// <param name="DS">List of ArrayOfDoorstroomDataDoorstroomData</param>
+        /// <param name="WB">List of ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking</param>
         public void DrawChart2(List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD, List<ArrayOfDoorstroomDataDoorstroomData> DS, List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB)
         {
+            Dictionary<string, double> DSGemiddeldeHavo = new Dictionary<string, double>();
+            Dictionary<string, double> DSGemiddeldeVwo = new Dictionary<string, double>();
+            foreach (string year in DS.Select(n => n.Perioden).Distinct())
+            {
+                double avarage1 = DS.Where(n => n.Perioden == year).Average(n=>n.Havo5Totaal_67).GetValueOrDefault();
+                double avarage2 = DS.Where(n => n.Perioden == year).Average(n => n.Vwo46Totaal_70).GetValueOrDefault();
+                DSGemiddeldeHavo.Add(year.Substring(0, 4), avarage1);
+                DSGemiddeldeVwo.Add(year.Substring(0, 4), avarage2);
+            }
+            chart2.Series.Clear();
+            chart2.Titles.Clear();
+            chart2.Titles.Add("Gemiddelde doorstroom van mannen en vrouwen van HAVO en VWO naar MBO over alle MBO richtingen");
 
+            var series1 = new Series("HAVO");
+            series1.ChartType = SeriesChartType.SplineRange;
+            series1.Points.DataBindXY(DSGemiddeldeHavo.Keys, DSGemiddeldeHavo.Values);
+
+            var series2 = new Series("VWO");
+            series2.ChartType = SeriesChartType.SplineRange;
+            series2.Points.DataBindXY(DSGemiddeldeVwo.Keys, DSGemiddeldeVwo.Values);
+            chart2.ChartAreas[0].AxisY.LabelStyle.Format = "{#,##}";
+            chart2.Series.Add(series1);
+            chart2.Series.Add(series2);
+            chart2.ChartAreas[0].AxisX.IsMarginVisible = false;
+            chart2.ChartAreas[0].RecalculateAxesScale();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Render Graph 3
+        /// </summary>
+        /// <param name="AD">List of ArrayOfAlcoholEnDrugsAlcoholEnDrugs</param>
+        /// <param name="DS">List of ArrayOfDoorstroomDataDoorstroomData</param>
+        /// <param name="WB">List of ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking</param>
+        public void DrawChart3(List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD, List<ArrayOfDoorstroomDataDoorstroomData> DS, List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB)
         {
-            //save the current settings
+            Dictionary<string, double> DW15jaar = new Dictionary<string, double>();
+            Dictionary<string, double> DW16jaar = new Dictionary<string, double>();
+            Dictionary<string, double> DW19jaar = new Dictionary<string, double>();
+
+            foreach (string year in WB.Select(n => n.Perioden).Distinct())
+            {
+                double avarage1 = WB.Where(n => n.Perioden == year && n.Kenmerken == "Leeftijd: 15 tot 25 jaar").Sum(n => n.TotaalCreatieveBeroepen).GetValueOrDefault();
+                double avarage2 = WB.Where(n => n.Perioden == year && n.Kenmerken == "Leeftijd: 25 tot 35 jaar").Sum(n => n.TotaalCreatieveBeroepen).GetValueOrDefault();
+                double avarage3 = WB.Where(n => n.Perioden == year && n.Kenmerken == "Leeftijd: 35 tot 45 jaar").Sum(n => n.TotaalCreatieveBeroepen).GetValueOrDefault();
+
+                DW15jaar.Add(year.Substring(0, 4), avarage1);
+                DW16jaar.Add(year.Substring(0, 4), avarage2);
+                DW19jaar.Add(year.Substring(0, 4), avarage3);
+
+            }
+
+            chart3.Series.Clear();
+            chart3.Titles.Clear();
+            chart3.Titles.Add("Totale creatieve beroepen per leeftijds categorie");
+
+            var series1 = new Series("15 tot 25 jaar");
+            series1.ChartType = SeriesChartType.Column;
+            series1.Points.DataBindXY(DW15jaar.Keys, DW15jaar.Values);
+
+            var series2 = new Series("25 tot 35 jaar");
+            series2.ChartType = SeriesChartType.Column;
+            series2.Points.DataBindXY(DW16jaar.Keys, DW16jaar.Values);
+
+            var series3 = new Series("35 tot 45 jaar");
+            series3.ChartType = SeriesChartType.Column;
+            series3.Points.DataBindXY(DW19jaar.Keys, DW19jaar.Values);
+
+            chart3.ChartAreas[0].AxisY.LabelStyle.Format = "{#}";
+            chart3.Series.Add(series1);
+            chart3.Series.Add(series2);
+            chart3.Series.Add(series3);
+            chart3.ChartAreas[0].AxisX.IsMarginVisible = false;
+            chart3.ChartAreas[0].RecalculateAxesScale();
         }
 
+        /// <summary>
+        /// When a different data format is selected refresh all the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbXML_CheckedChanged(object sender, EventArgs e)
         {
             RefreshAsync();
         }
 
+        /// <summary>
+        /// Upon an record size change refresh all the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trbMaxRecords_Scroll(object sender, EventArgs e)
         {
             RefreshAsync();

@@ -9,6 +9,7 @@ Deze API moet dan geconsumeerd worden in een client applicatie die kan schakelen
 ### DataProcessingClient [Naar project](https://github.com/brann0n/Dataprocessing/tree/master/DataProcessingClient)
 Dit project is de client applicatie gemaakt in C# die de REST API consumeerd. 
 Voor het uitvoeren van webrequests heb ik de RESTSharp plugin gebruikt
+![Client](/Images/DataProcessing.png)
 
 ### DataProcessingDataImporter [Naar project](https://github.com/brann0n/Dataprocessing/tree/master/DataProcessingDataImporter)
 Dit project kan de data van de gekozen datasets importeren in de lokale database. (Dit programma is alleen nodig bij het

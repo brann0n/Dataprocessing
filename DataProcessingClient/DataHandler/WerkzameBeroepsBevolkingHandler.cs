@@ -1,9 +1,6 @@
 ﻿using DataProcessingClient.Models;
 using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
@@ -56,7 +53,7 @@ namespace DataProcessingClient.DataHandler
             {
                 return null;
             }
-            
+
         }
 
         internal override async Task<WerkzameBeroepsbevolkingDataSet> DownloadDataAsync()
@@ -77,7 +74,7 @@ namespace DataProcessingClient.DataHandler
             {
                 DataForm.ReportError(e);
                 return null;
-            }         
+            }
         }
 
         internal override void SetData(WerkzameBeroepsbevolkingDataSet data)
