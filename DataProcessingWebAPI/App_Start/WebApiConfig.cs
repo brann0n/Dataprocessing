@@ -8,8 +8,15 @@ using System.Web.Http;
 
 namespace DataProcessingWebAPI
 {
+    /// <summary>
+    /// This class takes care of the configuration for WebApi
+    /// </summary>
     public static class WebApiConfig
     {
+        /// <summary>
+        /// Function that registers a few http configuration properties
+        /// </summary>
+        /// <param name="config"></param>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services

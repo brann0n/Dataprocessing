@@ -13,8 +13,16 @@ using System.Xml.Schema;
 
 namespace DataProcessingWebAPI
 {
+    /// <summary>
+    /// Attribute that handles any exception that occures on the api controllers
+    /// </summary>
     public class ApiExceptionHandlerAttribute : ExceptionFilterAttribute
     {
+
+        /// <summary>
+        /// Invoked when an exception occures
+        /// </summary>
+        /// <param name="c">contains the context of the exception</param>
         public override void OnException(HttpActionExecutedContext c)
         {
             if (c.Exception is NotImplementedException)

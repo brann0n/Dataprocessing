@@ -260,7 +260,6 @@
     <Compile Include="WBPerioden.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="XMLValidatorSchemaAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -271,6 +270,7 @@
     <None Include="Content\Schemas\ADHerkomst.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\Schemas\DoorstroomData.json" />
     <None Include="Content\Schemas\DoorstroomData.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -280,6 +280,7 @@
     <None Include="Content\Schemas\WBPerioden.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Content\Schemas\AlcoholEnDrugs.json" />
     <Content Include="Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
@@ -324,6 +325,7 @@
     <None Include="Content\Schemas\AlcoholEnDrugs.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\Schemas\WerkzameBeroepsbevolking.json" />
     <None Include="Content\Schemas\WerkzameBeroepsbevolking.xsd">
       <SubType>Designer</SubType>
     </None>

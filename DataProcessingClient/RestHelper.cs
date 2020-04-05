@@ -50,7 +50,7 @@ namespace DataProcessingClient
             switch (format)
             {
                 case DataHandler.DataFormat.XML:
-                    request.AddHeader("Accept", "text/xml");
+                    request.AddHeader("Accept", "application/xml");
                     return await client.ExecuteGetAsync(request);
 
                 case DataHandler.DataFormat.JSON:
@@ -77,7 +77,7 @@ namespace DataProcessingClient
             }
             else
             {
-                throw new Exception("AlcoholEnDrugsDataSet: Validation failed");
+                throw new Exception("XML AlcoholEnDrugsDataSet: Validation failed");
             }
 
         }
@@ -98,7 +98,7 @@ namespace DataProcessingClient
             }
             else
             {
-                throw new Exception("DoorstroomDataDataSet: Validation failed");
+                throw new Exception("XML DoorstroomDataDataSet: Validation failed");
             }
         }
         public static WerkzameBeroepsbevolkingDataSet ConvertXMLToWB(string xml)
@@ -118,7 +118,7 @@ namespace DataProcessingClient
             }
             else
             {
-                throw new Exception("WerkzameBeroepsbevolkingDataSet: Validation failed");
+                throw new Exception("XML WerkzameBeroepsbevolkingDataSet: Validation failed");
             }
         }
 
@@ -135,6 +135,60 @@ namespace DataProcessingClient
             }
 
             return JsonConvert.DeserializeObject<T>(json);
+        }
+        public static AlcoholEnDrugsDataSet ConvertJsonToAD(string json)
+        {
+            if (json[0] == '<')
+            {
+                return default;
+            }
+
+            var object1 = JsonConvert.DeserializeObject<AlcoholEnDrugsDataSet>(json);
+            var valErrors = Validator.ValidateJson(object1.SchemaLocation, json);
+            if (valErrors.Count == 0)
+            {
+                return object1;
+            }
+            else
+            {
+                throw new Exception("JSON AlcoholEnDrugsDataSet: Validation failed");
+            }
+        }
+        public static DoorstroomDataDataSet ConvertJsonToDS(string json)
+        {
+            if (json[0] == '<')
+            {
+                return default;
+            }
+
+            var object1 = JsonConvert.DeserializeObject<DoorstroomDataDataSet>(json);
+            var valErrors = Validator.ValidateJson(object1.SchemaLocation, json);
+            if (valErrors.Count == 0)
+            {
+                return object1;
+            }
+            else
+            {
+                throw new Exception("JSON DoorstroomDataDataSet: Validation failed");
+            }
+        }
+        public static WerkzameBeroepsbevolkingDataSet ConvertJsonToWB(string json)
+        {
+            if (json[0] == '<')
+            {
+                return default;
+            }
+
+            var object1 = JsonConvert.DeserializeObject<WerkzameBeroepsbevolkingDataSet>(json);
+            var valErrors = Validator.ValidateJson(object1.SchemaLocation, json);
+            if (valErrors.Count == 0)
+            {
+                return object1;
+            }
+            else
+            {
+                throw new Exception("JSON WerkzameBeroepsbevolkingDataSet: Validation failed");
+            }
         }
     }
 }

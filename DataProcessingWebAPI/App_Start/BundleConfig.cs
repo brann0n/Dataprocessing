@@ -3,9 +3,15 @@ using System.Web.Optimization;
 
 namespace DataProcessingWebAPI
 {
+    /// <summary>
+    /// Class that registers the bundles
+    /// </summary>
     public class BundleConfig
     {
-        // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
+        /// <summary>
+        /// Specify the bundles in here
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

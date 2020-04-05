@@ -6,18 +6,54 @@ using System.Xml.Serialization;
 
 namespace DataProcessingWebAPI.Models
 {
+    /// <summary>
+    /// Data model
+    /// </summary>
     public class WerkzameBeroepsbevolking
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Kenmerken { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Perioden { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> WerkzameBeroepsbevolkingTotaal { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> TotaalCreatieveBeroepen { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> Kunsten { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> MediaEnEntertainment { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> CreatieveZakelijkeDienstverlening { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> OverigeCreatieveBeroepen { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> WerkzPersMetNietCreatieveBeroep { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public Nullable<int> WerkzPersMetBeroepOnbekend { get; set; }
 
         /// <summary>
@@ -45,13 +81,25 @@ namespace DataProcessingWebAPI.Models
         }
     }
 
+    /// <summary>
+    /// Sub data model
+    /// </summary>
     public class WerkzameBeroepsbevolkingDataSet
     {
+        /// <summary>
+        /// Schema Location
+        /// </summary>
         [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation = "http://localhost:54164/Content/Schemas/WerkzameBeroepsbevolking.xsd";
+        public string SchemaLocation = "http://localhost:54164/Content/Schemas/WerkzameBeroepsbevolking";
 
+        /// <summary>
+        /// sub array
+        /// </summary>
         public List<WerkzameBeroepsbevolking> WerkzameBeroepsbevolkingArray { get; set; }
 
+        /// <summary>
+        /// public constructor
+        /// </summary>
         public WerkzameBeroepsbevolkingDataSet()
         {
             WerkzameBeroepsbevolkingArray = new List<WerkzameBeroepsbevolking>();

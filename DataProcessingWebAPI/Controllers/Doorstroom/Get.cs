@@ -25,6 +25,16 @@ namespace DataProcessingWebAPI.Controllers
                 lijstje.DoorstroomDataArray.Add(record);
             }
 
+            switch (GetAccept())
+            {
+                case DataFormat.XML:
+                    lijstje.SchemaLocation += ".xsd";
+                    break;
+                case DataFormat.JSON:
+                    lijstje.SchemaLocation += ".json";
+                    break;
+            }
+
             return lijstje;
         }
 

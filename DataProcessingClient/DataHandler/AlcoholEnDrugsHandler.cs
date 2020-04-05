@@ -28,7 +28,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToAD(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<AlcoholEnDrugsDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToAD(response.Content);
                 }
             }
             catch
@@ -74,7 +74,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToAD(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<AlcoholEnDrugsDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToAD(response.Content);
                 }
             }
             catch (Exception e)

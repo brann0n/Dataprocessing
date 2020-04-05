@@ -7,7 +7,9 @@ using System.Xml.Serialization;
 
 namespace DataProcessingWebAPI.Models
 {
-    [XMLValidatorSchema("test.xsd")]
+    /// <summary>
+    /// Alcohol en drugs model
+    /// </summary>
     public class AlcoholEnDrugs
     {
         /// <summary>
@@ -80,13 +82,25 @@ namespace DataProcessingWebAPI.Models
         }
     }
 
+    /// <summary>
+    /// Sub dataset for AlcoholEnDrugs
+    /// </summary>
     public class AlcoholEnDrugsDataSet
     {
+        /// <summary>
+        /// Schema Location
+        /// </summary>
         [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation = "http://localhost:54164/Content/Schemas/AlcoholEnDrugs.xsd";
+        public string SchemaLocation = "http://localhost:54164/Content/Schemas/AlcoholEnDrugs";
 
+        /// <summary>
+        /// Sub array
+        /// </summary>
         public List<AlcoholEnDrugs> AlcoholEnDrugsArray { get; set; }
 
+        /// <summary>
+        /// public constructor
+        /// </summary>
         public AlcoholEnDrugsDataSet()
         {
             AlcoholEnDrugsArray = new List<AlcoholEnDrugs>();

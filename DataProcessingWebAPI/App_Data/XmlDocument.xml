@@ -4,6 +4,17 @@
         <name>DataProcessingWebAPI</name>
     </assembly>
     <members>
+        <member name="T:DataProcessingWebAPI.ApiExceptionHandlerAttribute">
+            <summary>
+            Attribute that handles any exception that occures on the api controllers
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.ApiExceptionHandlerAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Invoked when an exception occures
+            </summary>
+            <param name="c">contains the context of the exception</param>
+        </member>
         <member name="M:DataProcessingWebAPI.ApiExceptionHandlerAttribute.Response(System.Net.HttpStatusCode,System.String)">
             <summary>
             Creates a http response message with the provided string
@@ -11,6 +22,82 @@
             <param name="status"></param>
             <param name="message"></param>
             <returns></returns>
+        </member>
+        <member name="T:DataProcessingWebAPI.App_Start.BrowserJsonFormatter">
+            <summary>
+            Formatter for json in the browser
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.BrowserJsonFormatter.#ctor">
+            <summary>
+            Constructor that specifies that the formatter may only react to text/html
+            also makes indentation possible
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.BrowserJsonFormatter.SetDefaultContentHeaders(System.Type,System.Net.Http.Headers.HttpContentHeaders,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets content headers
+            </summary>
+            <param name="type"></param>
+            <param name="headers"></param>
+            <param name="mediaType"></param>
+        </member>
+        <member name="T:DataProcessingWebAPI.App_Start.XMLFormatter">
+            <summary>
+            Media formatter for XML serialization
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.XMLFormatter.#ctor">
+            <summary>
+            Constructor for empty namespaces
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.XMLFormatter.#ctor(System.String)">
+            <summary>
+            Constructor with a custom default namespace
+            </summary>
+            <param name="defaultNS">the namespace url</param>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.XMLFormatter.SetDefaultContentHeaders(System.Type,System.Net.Http.Headers.HttpContentHeaders,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the default content header this formatter should react to
+            </summary>
+            <param name="type"></param>
+            <param name="headers"></param>
+            <param name="mediaType"></param>
+        </member>
+        <member name="M:DataProcessingWebAPI.App_Start.XMLFormatter.WriteToStreamAsync(System.Type,System.Object,System.IO.Stream,System.Net.Http.HttpContent,System.Net.TransportContext)">
+            <summary>
+            This function converts any provided object to xml with a few custom properties
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <param name="writeStream"></param>
+            <param name="content"></param>
+            <param name="transportContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DataProcessingWebAPI.BundleConfig">
+            <summary>
+            Class that registers the bundles
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)">
+            <summary>
+            Specify the bundles in here
+            </summary>
+            <param name="bundles"></param>
+        </member>
+        <member name="T:DataProcessingWebAPI.WebApiConfig">
+            <summary>
+            This class takes care of the configuration for WebApi
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Function that registers a few http configuration properties
+            </summary>
+            <param name="config"></param>
         </member>
         <member name="M:DataProcessingWebAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
@@ -618,6 +705,21 @@
             <param name="model">the changed model with keys to other tables</param>
             <returns>http response message with status code 200 or 500</returns>
         </member>
+        <member name="T:DataProcessingWebAPI.Controllers.DataFormat">
+            <summary>
+            simple enum for xml or json
+            </summary>
+        </member>
+        <member name="F:DataProcessingWebAPI.Controllers.DataFormat.XML">
+            <summary>
+            XML
+            </summary>
+        </member>
+        <member name="F:DataProcessingWebAPI.Controllers.DataFormat.JSON">
+            <summary>
+            JSON
+            </summary>
+        </member>
         <member name="T:DataProcessingWebAPI.Controllers.DataController">
             <summary>
             This controller inherits the ApiController class with some extra custom functions
@@ -629,6 +731,36 @@
             </summary>
             <param name="SchemaName">Name of the local scheme</param>
             <returns>boolean that is true when data matches the scheme and false if it doesnt match</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.ValidateXML(System.String,System.String)">
+            <summary>
+            Validates XML against a schema
+            </summary>
+            <param name="SchemaName"></param>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.ValidateJson(System.String,System.String)">
+            <summary>
+            Validates json agains a schema
+            </summary>
+            <param name="SchemaName"></param>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.GetSchemaPath(System.String,System.String)">
+            <summary>
+            Gets the path to your schema, relative to the webserver
+            </summary>
+            <param name="schema"></param>
+            <param name="fileExtension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DataController.GetAccept">
+            <summary>
+            Checks the accept header and then converts that into a simple enum
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.DataController.Response(System.Net.HttpStatusCode,System.String)">
             <summary>
@@ -825,6 +957,17 @@
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 400</returns>
         </member>
+        <member name="T:DataProcessingWebAPI.Controllers.HomeController">
+            <summary>
+            Controler for the main part of the UI
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.HomeController.Index">
+            <summary>
+            Only accessable page
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController">
             <summary>
             The WerkzameBeroepsbevolking controller, this controller can do REST functions on the WerkzameBeroepsbevolking tables.
@@ -925,6 +1068,21 @@
             <param name="model">the changed model</param>
             <returns>http response message with status code 200 or 400</returns>
         </member>
+        <member name="T:DataProcessingWebAPI.WebApiApplication">
+            <summary>
+            This class contains the webserver, this class is initialized upon the start of the webserver
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.WebApiApplication.Application_Start">
+            <summary>
+            Called when the webserver is starting
+            </summary>
+        </member>
+        <member name="T:DataProcessingWebAPI.Models.AlcoholEnDrugs">
+            <summary>
+            Alcohol en drugs model
+            </summary>
+        </member>
         <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugs.Id">
             <summary>
             Item id
@@ -986,17 +1144,568 @@
             </summary>
             <param name="v">the object to convert</param>
         </member>
+        <member name="T:DataProcessingWebAPI.Models.AlcoholEnDrugsDataSet">
+            <summary>
+            Sub dataset for AlcoholEnDrugs
+            </summary>
+        </member>
+        <member name="F:DataProcessingWebAPI.Models.AlcoholEnDrugsDataSet.SchemaLocation">
+            <summary>
+            Schema Location
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.AlcoholEnDrugsDataSet.AlcoholEnDrugsArray">
+            <summary>
+            Sub array
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.AlcoholEnDrugsDataSet.#ctor">
+            <summary>
+            public constructor
+            </summary>
+        </member>
+        <member name="T:DataProcessingWebAPI.Models.DoorstroomData">
+            <summary>
+            Model that contains all the Doorstroom Data properties
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Geslacht">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.MboLeerwegEnNiveau">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.MboRichtingEnSector">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Persoonskenmerken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Perioden">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TotaalDoorstroomLeerling_1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Leerjaar12_2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Vmbo3Totaal_3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.LandbouwBKG_5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijnBKG_6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.EconomieBKG_7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TechniekBKG_8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.CombinatieBKG_9">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.GeenSectorT_10">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_11">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.LandbouwBKG_12">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijnBKG_13">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.EconomieBKG_14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TechniekBKG_15">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.CombinatieBKG_16">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.GeenSectorT_17">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_18">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.LandbouwBKG_19">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijnBKG_20">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.EconomieBKG_21">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TechniekBKG_22">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.CombinatieBKG_23">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.GeenSectorT_24">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_25">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_26">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.BasisberoepsgerichteLeerweg_27">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.KaderberoepsgerichteLeerweg_28">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_29">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.GemengdeLeerweg_30">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TheoretischeLeerweg_31">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_33">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.BasisberoepsgerichteLeerweg_34">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.KaderberoepsgerichteLeerweg_35">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_36">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.GemengdeLeerweg_37">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TheoretischeLeerweg_38">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_39">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Landbouw_40">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijn_40">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Economie_42">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Techniek_43">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Combinatie_44">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_45">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Landbouw_46">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijn_47">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Economie_48">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Techniek_49">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Combinatie_50">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_51">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Landbouw_52">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijn_53">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Economie_54">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Techniek_55">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Combinatie_56">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_57">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Totaal_58">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Landbouw_59">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.ZorgEnWelzijn_60">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Economie_61">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Techniek_62">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Combinatie_63">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.TheoretischeLeerweg_64">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.HavoVwoInclAlgLeerjr_65">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Havo4Totaal_66">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Havo5Totaal_67">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Havo5MetDiploma_68">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Havo5ZonderDiploma_69">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Vwo46Totaal_70">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Vwo6MetDiploma_71">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Vwo46ZonderDiploma_72">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomData.Praktijkonderwijs_73">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:DataProcessingWebAPI.Models.DoorstroomData.op_Implicit(DataProcessingWebAPI.DSDataSet)~DataProcessingWebAPI.Models.DoorstroomData">
             <summary>
             Converts the database item into a api friendly item
             </summary>
             <param name="d">item to convert</param>
         </member>
+        <member name="T:DataProcessingWebAPI.Models.DoorstroomDataDataSet">
+            <summary>
+            Sub item for the Doorstroom data
+            </summary>
+        </member>
+        <member name="F:DataProcessingWebAPI.Models.DoorstroomDataDataSet.SchemaLocation">
+            <summary>
+            Schema location
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.DoorstroomDataDataSet.DoorstroomDataArray">
+            <summary>
+            Sub array for DoorstroomData
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.DoorstroomDataDataSet.#ctor">
+            <summary>
+            public constructor
+            </summary>
+        </member>
+        <member name="T:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking">
+            <summary>
+            Data model
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.Kenmerken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.Perioden">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.WerkzameBeroepsbevolkingTotaal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.TotaalCreatieveBeroepen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.Kunsten">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.MediaEnEntertainment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.CreatieveZakelijkeDienstverlening">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.OverigeCreatieveBeroepen">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.WerkzPersMetNietCreatieveBeroep">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.WerkzPersMetBeroepOnbekend">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:DataProcessingWebAPI.Models.WerkzameBeroepsbevolking.op_Implicit(DataProcessingWebAPI.WBDataSet)~DataProcessingWebAPI.Models.WerkzameBeroepsbevolking">
             <summary>
             does conversion from the other object to this object.
             </summary>
             <param name="b">Database object</param>
+        </member>
+        <member name="T:DataProcessingWebAPI.Models.WerkzameBeroepsbevolkingDataSet">
+            <summary>
+            Sub data model
+            </summary>
+        </member>
+        <member name="F:DataProcessingWebAPI.Models.WerkzameBeroepsbevolkingDataSet.SchemaLocation">
+            <summary>
+            Schema Location
+            </summary>
+        </member>
+        <member name="P:DataProcessingWebAPI.Models.WerkzameBeroepsbevolkingDataSet.WerkzameBeroepsbevolkingArray">
+            <summary>
+            sub array
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.Models.WerkzameBeroepsbevolkingDataSet.#ctor">
+            <summary>
+            public constructor
+            </summary>
+        </member>
+        <member name="T:DataProcessingWebAPI.ValidationException`1">
+            <summary>
+            Class that allows to process validation exceptions of any sub datatype
+            </summary>
+            <typeparam name="TValidationError">Can by any type from string to object</typeparam>
+        </member>
+        <member name="F:DataProcessingWebAPI.ValidationException`1.Exceptions">
+            <summary>
+            The internal array that contains the "Exceptions"
+            </summary>
+        </member>
+        <member name="M:DataProcessingWebAPI.ValidationException`1.#ctor(System.String)">
+            <summary>
+            Constructor that initializes the underlying Exception class
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:DataProcessingWebAPI.ValidationException`1.#ctor(System.String,System.Collections.Generic.List{`0})">
+            <summary>
+            Constructor that takes a message and a list of your own exceptions
+            </summary>
+            <param name="message"></param>
+            <param name="Items"></param>
+        </member>
+        <member name="M:DataProcessingWebAPI.ValidationException`1.AddDataList(System.Collections.Generic.List{`0})">
+            <summary>
+            Adds a list of exceptions to the internal list
+            </summary>
+            <param name="Items"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

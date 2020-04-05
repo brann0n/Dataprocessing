@@ -16,7 +16,7 @@ namespace DataProcessingDataImporter
     {
 
         public static DataProcessingEntities db = new DataProcessingEntities();
-        private static void Main(string[] args)
+        private static void Main()
         {
             Console.WriteLine("Dataprocessing dataset importer.");
             GetAlcoholEnDrugs();
@@ -233,10 +233,10 @@ namespace DataProcessingDataImporter
             IRestResponse requestperioden = RestHelper.Get("https://opendata.cbs.nl/", "ODataApi/OData/71892ned/Perioden");
 
             OdataReceiver<MboLeerwegEnNiveauModel> dMboLeerwegEnNiveauModel = RestHelper.ConvertJsonToObject<OdataReceiver<MboLeerwegEnNiveauModel>>(requestMboLeerweg.Content);
-            OdataReceiver<MboRichtingEnSectorModel> dMboRichting = RestHelper.ConvertJsonToObject<OdataReceiver<MboRichtingEnSectorModel>>(requestMboLeerweg.Content);
-            OdataReceiver<PersoonsKenmerkenModel> dPersoonsKenmerken = RestHelper.ConvertJsonToObject<OdataReceiver<PersoonsKenmerkenModel>>(requestMboLeerweg.Content);
-            OdataReceiver<GeslachtModel> dGeslacht = RestHelper.ConvertJsonToObject<OdataReceiver<GeslachtModel>>(requestMboLeerweg.Content);
-            OdataReceiver<PeriodenModel> dPerioden = RestHelper.ConvertJsonToObject<OdataReceiver<PeriodenModel>>(requestMboLeerweg.Content);
+            OdataReceiver<MboRichtingEnSectorModel> dMboRichting = RestHelper.ConvertJsonToObject<OdataReceiver<MboRichtingEnSectorModel>>(requestMboRichting.Content);
+            OdataReceiver<PersoonsKenmerkenModel> dPersoonsKenmerken = RestHelper.ConvertJsonToObject<OdataReceiver<PersoonsKenmerkenModel>>(requestPersoonsKenmerken.Content);
+            OdataReceiver<GeslachtModel> dGeslacht = RestHelper.ConvertJsonToObject<OdataReceiver<GeslachtModel>>(requestGeslacht.Content);
+            OdataReceiver<PeriodenModel> dPerioden = RestHelper.ConvertJsonToObject<OdataReceiver<PeriodenModel>>(requestperioden.Content);
 
             //check for existing key/id and if its new then add
             foreach (MboLeerwegEnNiveauModel model in dMboLeerwegEnNiveauModel.value)

@@ -1,0 +1,98 @@
+﻿{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"title": "Root", 
+	"type": "object",
+	"properties": {
+		"SchemaLocation": {
+			"$id": "#root/SchemaLocation", 
+			"title": "Schemalocation", 
+			"type": "string",
+			"default": "",
+			"pattern": "^.*$"
+		},
+		"AlcoholEnDrugsArray": {
+			"$id": "#root/AlcoholEnDrugsArray", 
+			"title": "Alcoholendrugsarray", 
+			"type": "array",
+			"default": [],
+			"items":{
+				"$id": "#root/AlcoholEnDrugsArray/items", 
+				"title": "Items", 
+				"type": "object",
+				"properties": {
+					"Id": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Id", 
+						"title": "Id", 
+						"type": "integer",
+						"default": 0
+					},
+					"Geslacht": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Geslacht", 
+						"title": "Geslacht", 
+						"type": "string",
+						"default": "",
+						"pattern": "^.*$"
+					},
+					"Herkomst": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Herkomst", 
+						"title": "Herkomst", 
+						"type": "string",
+						"default": "",
+						"pattern": "^.*$"
+					},
+					"Perioden": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Perioden", 
+						"title": "Perioden", 
+						"type": "string",
+						"default": "",
+						"pattern": "^.*$"
+					},
+					"Alcoholgebruik": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Alcoholgebruik", 
+						"title": "Alcoholgebruik", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"BingeDrinken": {
+						"$id": "#root/AlcoholEnDrugsArray/items/BingeDrinken", 
+						"title": "Bingedrinken", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"CannabisOoitGebruikt": {
+						"$id": "#root/AlcoholEnDrugsArray/items/CannabisOoitGebruikt", 
+						"title": "Cannabisooitgebruikt", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"CannabisActiefGebruik": {
+						"$id": "#root/AlcoholEnDrugsArray/items/CannabisActiefGebruik", 
+						"title": "Cannabisactiefgebruik", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"TotaalGebruik": {
+						"$id": "#root/AlcoholEnDrugsArray/items/TotaalGebruik", 
+						"title": "Totaalgebruik", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"XTC": {
+						"$id": "#root/AlcoholEnDrugsArray/items/XTC", 
+						"title": "Xtc", 
+						"type": ["number", "null"],
+						"default": 0.0
+					},
+					"Cocaine": {
+						"$id": "#root/AlcoholEnDrugsArray/items/Cocaine", 
+						"title": "Cocaine", 
+						"type": ["number", "null"],
+						"default": 0.0
+					}
+				}
+			}
+
+		}
+	}
+}

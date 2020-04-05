@@ -49,7 +49,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToDS(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<DoorstroomDataDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToDS(response.Content);
                 }
             }
             catch
@@ -69,7 +69,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToDS(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<DoorstroomDataDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToDS(response.Content);
                 }
             }
             catch (Exception e)

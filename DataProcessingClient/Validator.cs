@@ -37,15 +37,7 @@ namespace DataProcessingClient
             });
 
             client.Dispose();
-
-            if (valErrors.Count != 0)
-            {
-                return valErrors;
-            }
-            else
-            {
-                return default;
-            }
+            return valErrors;
         }
     }
 }

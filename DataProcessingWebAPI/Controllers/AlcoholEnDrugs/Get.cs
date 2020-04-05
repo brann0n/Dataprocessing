@@ -23,6 +23,17 @@ namespace DataProcessingWebAPI.Controllers
             {
                 lijstje.AlcoholEnDrugsArray.Add(record);
             }
+
+            switch (GetAccept())
+            {
+                case DataFormat.XML:
+                    lijstje.SchemaLocation += ".xsd";
+                    break;
+                case DataFormat.JSON:
+                    lijstje.SchemaLocation += ".json";
+                    break;
+            }
+
             return lijstje;
         }
 

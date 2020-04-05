@@ -49,7 +49,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToWB(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<WerkzameBeroepsbevolkingDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToWB(response.Content);
                 }
             }
             catch
@@ -70,7 +70,7 @@ namespace DataProcessingClient.DataHandler
                         return RestHelper.ConvertXMLToWB(response.Content);
                     case DataFormat.JSON:
                     default:
-                        return RestHelper.ConvertJsonToObject<WerkzameBeroepsbevolkingDataSet>(response.Content);
+                        return RestHelper.ConvertJsonToWB(response.Content);
                 }
             }
             catch (Exception e)

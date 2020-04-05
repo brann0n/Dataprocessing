@@ -1,0 +1,508 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Root",
+  "type": "object",
+  "properties": {
+    "SchemaLocation": {
+      "$id": "#root/SchemaLocation",
+      "title": "Schemalocation",
+      "type": "string",
+      "default": "",
+      "pattern": "^.*$"
+    },
+    "DoorstroomDataArray": {
+      "$id": "#root/DoorstroomDataArray",
+      "title": "Doorstroomdataarray",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$id": "#root/DoorstroomDataArray/items",
+        "title": "Items",
+        "type": "object",
+        "properties": {
+          "Id": {
+            "$id": "#root/DoorstroomDataArray/items/Id",
+            "title": "Id",
+            "type": "integer",
+            "default": 0
+          },
+          "Geslacht": {
+            "$id": "#root/DoorstroomDataArray/items/Geslacht",
+            "title": "Geslacht",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "MboLeerwegEnNiveau": {
+            "$id": "#root/DoorstroomDataArray/items/MboLeerwegEnNiveau",
+            "title": "Mboleerwegenniveau",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "MboRichtingEnSector": {
+            "$id": "#root/DoorstroomDataArray/items/MboRichtingEnSector",
+            "title": "Mborichtingensector",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "Persoonskenmerken": {
+            "$id": "#root/DoorstroomDataArray/items/Persoonskenmerken",
+            "title": "Persoonskenmerken",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "Perioden": {
+            "$id": "#root/DoorstroomDataArray/items/Perioden",
+            "title": "Perioden",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "TotaalDoorstroomLeerling_1": {
+            "$id": "#root/DoorstroomDataArray/items/TotaalDoorstroomLeerling_1",
+            "title": "Totaaldoorstroomleerling_1",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Leerjaar12_2": {
+            "$id": "#root/DoorstroomDataArray/items/Leerjaar12_2",
+            "title": "Leerjaar12_2",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Vmbo3Totaal_3": {
+            "$id": "#root/DoorstroomDataArray/items/Vmbo3Totaal_3",
+            "title": "Vmbo3totaal_3",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_4": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_4",
+            "title": "Totaal_4",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "LandbouwBKG_5": {
+            "$id": "#root/DoorstroomDataArray/items/LandbouwBKG_5",
+            "title": "Landbouwbkg_5",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijnBKG_6": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijnBKG_6",
+            "title": "Zorgenwelzijnbkg_6",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "EconomieBKG_7": {
+            "$id": "#root/DoorstroomDataArray/items/EconomieBKG_7",
+            "title": "Economiebkg_7",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TechniekBKG_8": {
+            "$id": "#root/DoorstroomDataArray/items/TechniekBKG_8",
+            "title": "Techniekbkg_8",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "CombinatieBKG_9": {
+            "$id": "#root/DoorstroomDataArray/items/CombinatieBKG_9",
+            "title": "Combinatiebkg_9",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "GeenSectorT_10": {
+            "$id": "#root/DoorstroomDataArray/items/GeenSectorT_10",
+            "title": "Geensectort_10",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_11": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_11",
+            "title": "Totaal_11",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "LandbouwBKG_12": {
+            "$id": "#root/DoorstroomDataArray/items/LandbouwBKG_12",
+            "title": "Landbouwbkg_12",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijnBKG_13": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijnBKG_13",
+            "title": "Zorgenwelzijnbkg_13",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "EconomieBKG_14": {
+            "$id": "#root/DoorstroomDataArray/items/EconomieBKG_14",
+            "title": "Economiebkg_14",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TechniekBKG_15": {
+            "$id": "#root/DoorstroomDataArray/items/TechniekBKG_15",
+            "title": "Techniekbkg_15",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "CombinatieBKG_16": {
+            "$id": "#root/DoorstroomDataArray/items/CombinatieBKG_16",
+            "title": "Combinatiebkg_16",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "GeenSectorT_17": {
+            "$id": "#root/DoorstroomDataArray/items/GeenSectorT_17",
+            "title": "Geensectort_17",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_18": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_18",
+            "title": "Totaal_18",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "LandbouwBKG_19": {
+            "$id": "#root/DoorstroomDataArray/items/LandbouwBKG_19",
+            "title": "Landbouwbkg_19",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijnBKG_20": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijnBKG_20",
+            "title": "Zorgenwelzijnbkg_20",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "EconomieBKG_21": {
+            "$id": "#root/DoorstroomDataArray/items/EconomieBKG_21",
+            "title": "Economiebkg_21",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TechniekBKG_22": {
+            "$id": "#root/DoorstroomDataArray/items/TechniekBKG_22",
+            "title": "Techniekbkg_22",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "CombinatieBKG_23": {
+            "$id": "#root/DoorstroomDataArray/items/CombinatieBKG_23",
+            "title": "Combinatiebkg_23",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "GeenSectorT_24": {
+            "$id": "#root/DoorstroomDataArray/items/GeenSectorT_24",
+            "title": "Geensectort_24",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_25": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_25",
+            "title": "Totaal_25",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_26": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_26",
+            "title": "Totaal_26",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "BasisberoepsgerichteLeerweg_27": {
+            "$id": "#root/DoorstroomDataArray/items/BasisberoepsgerichteLeerweg_27",
+            "title": "Basisberoepsgerichteleerweg_27",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "KaderberoepsgerichteLeerweg_28": {
+            "$id": "#root/DoorstroomDataArray/items/KaderberoepsgerichteLeerweg_28",
+            "title": "Kaderberoepsgerichteleerweg_28",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_29": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_29",
+            "title": "Totaal_29",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "GemengdeLeerweg_30": {
+            "$id": "#root/DoorstroomDataArray/items/GemengdeLeerweg_30",
+            "title": "Gemengdeleerweg_30",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TheoretischeLeerweg_31": {
+            "$id": "#root/DoorstroomDataArray/items/TheoretischeLeerweg_31",
+            "title": "Theoretischeleerweg_31",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_32": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_32",
+            "title": "Totaal_32",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_33": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_33",
+            "title": "Totaal_33",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "BasisberoepsgerichteLeerweg_34": {
+            "$id": "#root/DoorstroomDataArray/items/BasisberoepsgerichteLeerweg_34",
+            "title": "Basisberoepsgerichteleerweg_34",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "KaderberoepsgerichteLeerweg_35": {
+            "$id": "#root/DoorstroomDataArray/items/KaderberoepsgerichteLeerweg_35",
+            "title": "Kaderberoepsgerichteleerweg_35",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_36": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_36",
+            "title": "Totaal_36",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "GemengdeLeerweg_37": {
+            "$id": "#root/DoorstroomDataArray/items/GemengdeLeerweg_37",
+            "title": "Gemengdeleerweg_37",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TheoretischeLeerweg_38": {
+            "$id": "#root/DoorstroomDataArray/items/TheoretischeLeerweg_38",
+            "title": "Theoretischeleerweg_38",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_39": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_39",
+            "title": "Totaal_39",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Landbouw_40": {
+            "$id": "#root/DoorstroomDataArray/items/Landbouw_40",
+            "title": "Landbouw_40",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijn_40": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijn_40",
+            "title": "Zorgenwelzijn_40",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Economie_42": {
+            "$id": "#root/DoorstroomDataArray/items/Economie_42",
+            "title": "Economie_42",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Techniek_43": {
+            "$id": "#root/DoorstroomDataArray/items/Techniek_43",
+            "title": "Techniek_43",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Combinatie_44": {
+            "$id": "#root/DoorstroomDataArray/items/Combinatie_44",
+            "title": "Combinatie_44",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_45": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_45",
+            "title": "Totaal_45",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Landbouw_46": {
+            "$id": "#root/DoorstroomDataArray/items/Landbouw_46",
+            "title": "Landbouw_46",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijn_47": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijn_47",
+            "title": "Zorgenwelzijn_47",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Economie_48": {
+            "$id": "#root/DoorstroomDataArray/items/Economie_48",
+            "title": "Economie_48",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Techniek_49": {
+            "$id": "#root/DoorstroomDataArray/items/Techniek_49",
+            "title": "Techniek_49",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Combinatie_50": {
+            "$id": "#root/DoorstroomDataArray/items/Combinatie_50",
+            "title": "Combinatie_50",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_51": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_51",
+            "title": "Totaal_51",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Landbouw_52": {
+            "$id": "#root/DoorstroomDataArray/items/Landbouw_52",
+            "title": "Landbouw_52",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijn_53": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijn_53",
+            "title": "Zorgenwelzijn_53",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Economie_54": {
+            "$id": "#root/DoorstroomDataArray/items/Economie_54",
+            "title": "Economie_54",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Techniek_55": {
+            "$id": "#root/DoorstroomDataArray/items/Techniek_55",
+            "title": "Techniek_55",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Combinatie_56": {
+            "$id": "#root/DoorstroomDataArray/items/Combinatie_56",
+            "title": "Combinatie_56",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_57": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_57",
+            "title": "Totaal_57",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Totaal_58": {
+            "$id": "#root/DoorstroomDataArray/items/Totaal_58",
+            "title": "Totaal_58",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Landbouw_59": {
+            "$id": "#root/DoorstroomDataArray/items/Landbouw_59",
+            "title": "Landbouw_59",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "ZorgEnWelzijn_60": {
+            "$id": "#root/DoorstroomDataArray/items/ZorgEnWelzijn_60",
+            "title": "Zorgenwelzijn_60",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Economie_61": {
+            "$id": "#root/DoorstroomDataArray/items/Economie_61",
+            "title": "Economie_61",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Techniek_62": {
+            "$id": "#root/DoorstroomDataArray/items/Techniek_62",
+            "title": "Techniek_62",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Combinatie_63": {
+            "$id": "#root/DoorstroomDataArray/items/Combinatie_63",
+            "title": "Combinatie_63",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TheoretischeLeerweg_64": {
+            "$id": "#root/DoorstroomDataArray/items/TheoretischeLeerweg_64",
+            "title": "Theoretischeleerweg_64",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "HavoVwoInclAlgLeerjr_65": {
+            "$id": "#root/DoorstroomDataArray/items/HavoVwoInclAlgLeerjr_65",
+            "title": "Havovwoinclalgleerjr_65",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Havo4Totaal_66": {
+            "$id": "#root/DoorstroomDataArray/items/Havo4Totaal_66",
+            "title": "Havo4totaal_66",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Havo5Totaal_67": {
+            "$id": "#root/DoorstroomDataArray/items/Havo5Totaal_67",
+            "title": "Havo5totaal_67",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Havo5MetDiploma_68": {
+            "$id": "#root/DoorstroomDataArray/items/Havo5MetDiploma_68",
+            "title": "Havo5metdiploma_68",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Havo5ZonderDiploma_69": {
+            "$id": "#root/DoorstroomDataArray/items/Havo5ZonderDiploma_69",
+            "title": "Havo5zonderdiploma_69",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Vwo46Totaal_70": {
+            "$id": "#root/DoorstroomDataArray/items/Vwo46Totaal_70",
+            "title": "Vwo46totaal_70",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Vwo6MetDiploma_71": {
+            "$id": "#root/DoorstroomDataArray/items/Vwo6MetDiploma_71",
+            "title": "Vwo6metdiploma_71",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Vwo46ZonderDiploma_72": {
+            "$id": "#root/DoorstroomDataArray/items/Vwo46ZonderDiploma_72",
+            "title": "Vwo46zonderdiploma_72",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Praktijkonderwijs_73": {
+            "$id": "#root/DoorstroomDataArray/items/Praktijkonderwijs_73",
+            "title": "Praktijkonderwijs_73",
+            "type": [ "integer", "null" ],
+            "default": 0
+          }
+        }
+      }
+
+    }
+  }
+}

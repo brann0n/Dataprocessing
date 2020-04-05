@@ -19,6 +19,6 @@ namespace DataProcessingWebAPI.Controllers
     public partial class AlcolholEnDrugsController : DataController
     {
         //reference to the EntityFramework classes that are connected to the database
-        DataProcessingEntities db = new DataProcessingEntities();          
+        readonly DataProcessingEntities db = new DataProcessingEntities();          
     }
 }

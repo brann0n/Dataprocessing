@@ -1,0 +1,97 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Root",
+  "type": "object",
+  "properties": {
+    "SchemaLocation": {
+      "$id": "#root/SchemaLocation",
+      "title": "Schemalocation",
+      "type": "string",
+      "default": "",
+      "pattern": "^.*$"
+    },
+    "WerkzameBeroepsbevolkingArray": {
+      "$id": "#root/WerkzameBeroepsbevolkingArray",
+      "title": "Werkzameberoepsbevolkingarray",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$id": "#root/WerkzameBeroepsbevolkingArray/items",
+        "title": "Items",
+        "type": "object",
+        "properties": {
+          "Id": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/Id",
+            "title": "Id",
+            "type": "integer",
+            "default": 0
+          },
+          "Kenmerken": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/Kenmerken",
+            "title": "Kenmerken",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "Perioden": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/Perioden",
+            "title": "Perioden",
+            "type": "string",
+            "default": "",
+            "pattern": "^.*$"
+          },
+          "WerkzameBeroepsbevolkingTotaal": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/WerkzameBeroepsbevolkingTotaal",
+            "title": "Werkzameberoepsbevolkingtotaal",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "TotaalCreatieveBeroepen": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/TotaalCreatieveBeroepen",
+            "title": "Totaalcreatieveberoepen",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "Kunsten": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/Kunsten",
+            "title": "Kunsten",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "MediaEnEntertainment": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/MediaEnEntertainment",
+            "title": "Mediaenentertainment",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "CreatieveZakelijkeDienstverlening": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/CreatieveZakelijkeDienstverlening",
+            "title": "Creatievezakelijkedienstverlening",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "OverigeCreatieveBeroepen": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/OverigeCreatieveBeroepen",
+            "title": "Overigecreatieveberoepen",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "WerkzPersMetNietCreatieveBeroep": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/WerkzPersMetNietCreatieveBeroep",
+            "title": "Werkzpersmetnietcreatieveberoep",
+            "type": [ "integer", "null" ],
+            "default": 0
+          },
+          "WerkzPersMetBeroepOnbekend": {
+            "$id": "#root/WerkzameBeroepsbevolkingArray/items/WerkzPersMetBeroepOnbekend",
+            "title": "Werkzpersmetberoeponbekend",
+            "type": [ "integer", "null" ],
+            "default": 0
+          }
+        }
+      }
+
+    }
+  }
+}
