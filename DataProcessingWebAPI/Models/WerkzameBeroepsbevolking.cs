@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace DataProcessingWebAPI.Models
 {
@@ -41,6 +42,19 @@ namespace DataProcessingWebAPI.Models
                 WerkzPersMetBeroepOnbekend = b.WerkzPersMetBeroepOnbekend
             };
             return item;
+        }
+    }
+
+    public class WerkzameBeroepsbevolkingDataSet
+    {
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation = "http://localhost:54164/Content/Schemas/WerkzameBeroepsbevolking.xsd";
+
+        public List<WerkzameBeroepsbevolking> WerkzameBeroepsbevolkingArray { get; set; }
+
+        public WerkzameBeroepsbevolkingDataSet()
+        {
+            WerkzameBeroepsbevolkingArray = new List<WerkzameBeroepsbevolking>();
         }
     }
 }

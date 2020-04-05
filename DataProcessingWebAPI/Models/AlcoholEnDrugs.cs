@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace DataProcessingWebAPI.Models
 {
+    [XMLValidatorSchema("test.xsd")]
     public class AlcoholEnDrugs
     {
         /// <summary>
@@ -74,6 +77,19 @@ namespace DataProcessingWebAPI.Models
                 XTC = v.XTC
             };
             return item;
+        }
+    }
+
+    public class AlcoholEnDrugsDataSet
+    {
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation = "http://localhost:54164/Content/Schemas/AlcoholEnDrugs.xsd";
+
+        public List<AlcoholEnDrugs> AlcoholEnDrugsArray { get; set; }
+
+        public AlcoholEnDrugsDataSet()
+        {
+            AlcoholEnDrugsArray = new List<AlcoholEnDrugs>();
         }
     }
 }

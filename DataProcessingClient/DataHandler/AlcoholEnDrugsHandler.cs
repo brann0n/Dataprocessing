@@ -8,35 +8,49 @@ using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
 {
-    public class AlcoholEnDrugsHandler : DataHandler<AlcoholEnDrugs>
+    public class AlcoholEnDrugsHandler : DataHandler<AlcoholEnDrugsDataSet>
     {
-        private List<AlcoholEnDrugs> data;
-        protected internal int Count { get => data.Count; }
+        private AlcoholEnDrugsDataSet data;
+        protected internal int Count { get => data?.AlcoholEnDrugsArray == null ? 0 : data.AlcoholEnDrugsArray.Length; }
         public AlcoholEnDrugsHandler(string baseUrl, DataFormat format, int max) : base(baseUrl, format, max)
         {
-            data = new List<AlcoholEnDrugs>();
+            data = new AlcoholEnDrugsDataSet();
         }
 
-        internal override List<AlcoholEnDrugs> DownloadData(string resourceURL)
+        internal override AlcoholEnDrugsDataSet DownloadData(string resourceURL)
         {
             IRestResponse response = RestHelper.Get(this.BaseURL, resourceURL, Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToAD(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<AlcoholEnDrugs>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToAD(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<AlcoholEnDrugsDataSet>(response.Content);
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 
-        public override List<AlcoholEnDrugs> GetData()
+        public override AlcoholEnDrugsDataSet GetData()
         {
-            if (data.Count == 0)
+            if (data == null || Count == 0)
             {
-                List<AlcoholEnDrugs> _data = DownloadData($"api/AlcoholEnDrugs/Get/{MaxRecords}");
-                SetData(_data);
-                return _data;
+                AlcoholEnDrugsDataSet _data = DownloadData($"api/AlcoholEnDrugs/Get/{MaxRecords}");
+                if(_data != null)
+                {
+                    SetData(_data);
+                    return _data;
+                }
+                else
+                {
+                    return data;
+                }
             }
             else
             {
@@ -44,22 +58,31 @@ namespace DataProcessingClient.DataHandler
             }
         }
 
-        internal override void SetData(List<AlcoholEnDrugs> data)
+        internal override void SetData(AlcoholEnDrugsDataSet data)
         {
             this.data = data;
         }
 
-        internal override async Task<List<AlcoholEnDrugs>> DownloadDataAsync()
+        internal override async Task<AlcoholEnDrugsDataSet> DownloadDataAsync()
         {
             IRestResponse response = await RestHelper.GetAsync(this.BaseURL, $"api/AlcoholEnDrugs/Get/{MaxRecords}", Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToAD(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<AlcoholEnDrugs>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToAD(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<AlcoholEnDrugsDataSet>(response.Content);
+                }
             }
+            catch (Exception e)
+            {
+                DataForm.ReportError(e);
+                return null;
+            }
+            
         }
     }
 }

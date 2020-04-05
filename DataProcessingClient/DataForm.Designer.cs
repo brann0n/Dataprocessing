@@ -38,6 +38,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbSettings = new System.Windows.Forms.GroupBox();
+            this.tbStats = new System.Windows.Forms.TextBox();
+            this.lblStats = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.chartAD1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblStats = new System.Windows.Forms.Label();
-            this.tbStats = new System.Windows.Forms.TextBox();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbMaxRecords)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartAD1)).BeginInit();
@@ -80,6 +80,24 @@
             this.gbSettings.TabIndex = 0;
             this.gbSettings.TabStop = false;
             this.gbSettings.Text = "Settings";
+            // 
+            // tbStats
+            // 
+            this.tbStats.Location = new System.Drawing.Point(19, 134);
+            this.tbStats.Multiline = true;
+            this.tbStats.Name = "tbStats";
+            this.tbStats.ReadOnly = true;
+            this.tbStats.Size = new System.Drawing.Size(313, 110);
+            this.tbStats.TabIndex = 11;
+            // 
+            // lblStats
+            // 
+            this.lblStats.AutoSize = true;
+            this.lblStats.Location = new System.Drawing.Point(7, 117);
+            this.lblStats.Name = "lblStats";
+            this.lblStats.Size = new System.Drawing.Size(49, 13);
+            this.lblStats.TabIndex = 10;
+            this.lblStats.Text = "Statistics";
             // 
             // label3
             // 
@@ -158,10 +176,12 @@
             // rbXML
             // 
             this.rbXML.AutoSize = true;
+            this.rbXML.Checked = true;
             this.rbXML.Location = new System.Drawing.Point(19, 53);
             this.rbXML.Name = "rbXML";
             this.rbXML.Size = new System.Drawing.Size(47, 17);
             this.rbXML.TabIndex = 1;
+            this.rbXML.TabStop = true;
             this.rbXML.Text = "XML";
             this.rbXML.UseVisualStyleBackColor = true;
             this.rbXML.CheckedChanged += new System.EventHandler(this.rbXML_CheckedChanged);
@@ -169,12 +189,10 @@
             // rbJson
             // 
             this.rbJson.AutoSize = true;
-            this.rbJson.Checked = true;
             this.rbJson.Location = new System.Drawing.Point(19, 30);
             this.rbJson.Name = "rbJson";
             this.rbJson.Size = new System.Drawing.Size(53, 17);
             this.rbJson.TabIndex = 0;
-            this.rbJson.TabStop = true;
             this.rbJson.Text = "JSON";
             this.rbJson.UseVisualStyleBackColor = true;
             // 
@@ -225,24 +243,6 @@
             this.chart3.Size = new System.Drawing.Size(496, 300);
             this.chart3.TabIndex = 1;
             this.chart3.Text = "chart1";
-            // 
-            // lblStats
-            // 
-            this.lblStats.AutoSize = true;
-            this.lblStats.Location = new System.Drawing.Point(7, 117);
-            this.lblStats.Name = "lblStats";
-            this.lblStats.Size = new System.Drawing.Size(49, 13);
-            this.lblStats.TabIndex = 10;
-            this.lblStats.Text = "Statistics";
-            // 
-            // tbStats
-            // 
-            this.tbStats.Location = new System.Drawing.Point(19, 134);
-            this.tbStats.Multiline = true;
-            this.tbStats.Name = "tbStats";
-            this.tbStats.ReadOnly = true;
-            this.tbStats.Size = new System.Drawing.Size(313, 110);
-            this.tbStats.TabIndex = 11;
             // 
             // DataForm
             // 

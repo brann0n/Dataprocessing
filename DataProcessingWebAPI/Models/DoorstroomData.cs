@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace DataProcessingWebAPI.Models
 {
@@ -179,4 +180,18 @@ namespace DataProcessingWebAPI.Models
             return item;
         }
     }
+
+    public class DoorstroomDataDataSet
+    {
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation = "http://localhost:54164/Content/Schemas/DoorstroomData.xsd";
+
+        public List<DoorstroomData> DoorstroomDataArray { get; set; }
+
+        public DoorstroomDataDataSet()
+        {
+            DoorstroomDataArray = new List<DoorstroomData>();
+        }
+    }
+
 }

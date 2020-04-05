@@ -16,13 +16,13 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of WerkzameBeroepsbevolking items</returns>
         [HttpGet, Route("Get/{limit?}/{skip?}")]
-        public List<WerkzameBeroepsbevolking> Get(int limit = 100, int skip = 0)
+        public WerkzameBeroepsbevolkingDataSet Get(int limit = 100, int skip = 0)
         {
             var table = db.WBDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
-            List<WerkzameBeroepsbevolking> lijstje = new List<WerkzameBeroepsbevolking>();
+            WerkzameBeroepsbevolkingDataSet lijstje = new WerkzameBeroepsbevolkingDataSet();
             foreach (var record in table)
             {
-                lijstje.Add(record);
+                lijstje.WerkzameBeroepsbevolkingArray.Add(record);
             }
 
             return lijstje;

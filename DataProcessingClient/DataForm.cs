@@ -13,20 +13,34 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DataProcessingClient
 {
+    public delegate void ReportErrorEventHandler(Exception exception);
+
     public partial class DataForm : Form
     {
         private AlcoholEnDrugsHandler alcoholEnDrugs;
         private DoorstroomHandler doorstroom;
         private WerkzameBeroepsBevolkingHandler werkzameBeroeps;
 
+        private static event ReportErrorEventHandler errorHandler;
+
         public DataFormat Format { get => (rbXML.Checked) ? DataFormat.XML : DataFormat.JSON; }
         public int MaxRecords { get => trbMaxRecords.Value * 100; }
-
 
         public DataForm()
         {
             InitializeComponent();
             RefreshAsync();
+            errorHandler += OnErrorReported;
+        }
+
+        private void OnErrorReported(Exception exception)
+        {
+            MessageBox.Show(exception.Message, "Error occured during the data retrieval", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void ReportError(Exception exception)
+        {
+            errorHandler(exception);
         }
 
         public async void RefreshAsync()
@@ -68,23 +82,34 @@ namespace DataProcessingClient
 
         private void DrawData()
         {
-            List<AlcoholEnDrugs> AD = alcoholEnDrugs.GetData();
-            List<DoorstroomModel> DS = doorstroom.GetData();
-            List<WerkzameBeroepsBevolkingModel> WB = werkzameBeroeps.GetData();
+            List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD = alcoholEnDrugs.GetData()?.AlcoholEnDrugsArray?.ToList();
+            List<ArrayOfDoorstroomDataDoorstroomData> DS = doorstroom.GetData()?.DoorstroomDataArray?.ToList();
+            List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB = werkzameBeroeps.GetData()?.WerkzameBeroepsbevolkingArray?.ToList();
 
-            if(AD.Count != 0 && DS.Count != 0 && WB.Count != 0)
+
+            if (AD != null && DS != null && WB != null)
             {
-                DrawChartAD1(AD, DS, WB);
-                DrawChart2(AD, DS, WB);
+                if (AD.Count != 0 && DS.Count != 0 && WB.Count != 0)
+                {
+                    DrawChartAD1(AD, DS, WB);
+                    DrawChart2(AD, DS, WB);
+                }
+                else
+                {
+                    //display a nice error or something :)
+                    ReportError(new Exception("Data was downloaded but some datasets have no items"));
+                }
             }
             else
             {
                 //display a nice error or something :)
+                ReportError(new Exception("Some Data could not be downloaded"));
             }
-            
+
+
         }
 
-        public void DrawChartAD1(List<AlcoholEnDrugs> AD, List<DoorstroomModel> DS, List<WerkzameBeroepsBevolkingModel> WB)
+        public void DrawChartAD1(List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD, List<ArrayOfDoorstroomDataDoorstroomData> DS, List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB)
         {
             Dictionary<string, double> ADAvarageBinge = new Dictionary<string, double>();
             Dictionary<string, double> ADAvarageDrugUse = new Dictionary<string, double>();
@@ -119,7 +144,7 @@ namespace DataProcessingClient
             chartAD1.ChartAreas[0].AxisX.IsMarginVisible = false;
             chartAD1.ChartAreas[0].RecalculateAxesScale();
         }
-        public void DrawChart2(List<AlcoholEnDrugs> AD, List<DoorstroomModel> DS, List<WerkzameBeroepsBevolkingModel> WB)
+        public void DrawChart2(List<ArrayOfAlcoholEnDrugsAlcoholEnDrugs> AD, List<ArrayOfDoorstroomDataDoorstroomData> DS, List<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking> WB)
         {
 
         }

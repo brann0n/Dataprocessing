@@ -8,14 +8,15 @@ namespace DataProcessingClient.Models
     [DesignerCategory("code")]
     [XmlType(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models")]
     [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models", IsNullable = false)]
-    public class ArrayOfAlcoholEnDrugs : XMLConvertable<ArrayOfAlcoholEnDrugsAlcoholEnDrugs>
+    public class AlcoholEnDrugsDataSet : XMLConvertable<ArrayOfAlcoholEnDrugsAlcoholEnDrugs>
     {
-
         private ArrayOfAlcoholEnDrugsAlcoholEnDrugs[] alcoholEnDrugsField;
+        private string schemaName;
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation { get { return schemaName; } set { schemaName = value; } }
 
-        /// <remarks/>
-        [XmlElement("AlcoholEnDrugs")]
-        public ArrayOfAlcoholEnDrugsAlcoholEnDrugs[] AlcoholEnDrugs
+        [XmlArrayItem("AlcoholEnDrugs", IsNullable = false)]
+        public ArrayOfAlcoholEnDrugsAlcoholEnDrugs[] AlcoholEnDrugsArray
         {
             get
             {
@@ -29,8 +30,8 @@ namespace DataProcessingClient.Models
 
         public ArrayOfAlcoholEnDrugsAlcoholEnDrugs[] GetArray()
         {
-            return AlcoholEnDrugs;
-        }      
+            return AlcoholEnDrugsArray;
+        }
     }
 
     [Serializable()]
@@ -204,5 +205,4 @@ namespace DataProcessingClient.Models
             }
         }
     }
-
 }

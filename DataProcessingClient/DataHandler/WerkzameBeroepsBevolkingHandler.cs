@@ -8,22 +8,29 @@ using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
 {
-    public class WerkzameBeroepsBevolkingHandler : DataHandler<WerkzameBeroepsBevolkingModel>
+    public class WerkzameBeroepsBevolkingHandler : DataHandler<WerkzameBeroepsbevolkingDataSet>
     {
-        private List<WerkzameBeroepsBevolkingModel> data;
-        protected internal int Count { get => data.Count; }
+        private WerkzameBeroepsbevolkingDataSet data;
+        protected internal int Count { get => data?.WerkzameBeroepsbevolkingArray == null ? 0 : data.WerkzameBeroepsbevolkingArray.Length; }
         public WerkzameBeroepsBevolkingHandler(string BaseUrl, DataFormat format, int max) : base(BaseUrl, format, max)
         {
-            data = new List<WerkzameBeroepsBevolkingModel>();
+            data = new WerkzameBeroepsbevolkingDataSet();
         }
 
-        public override List<WerkzameBeroepsBevolkingModel> GetData()
+        public override WerkzameBeroepsbevolkingDataSet GetData()
         {
-            if (data.Count == 0)
+            if (data == null || Count == 0)
             {
-                List<WerkzameBeroepsBevolkingModel> _data = DownloadData($"api/WerkzameBeroepsbevolking/Get/{MaxRecords}");
-                SetData(_data);
-                return _data;
+                WerkzameBeroepsbevolkingDataSet _data = DownloadData($"api/WerkzameBeroepsbevolking/Get/{MaxRecords}");
+                if (_data != null)
+                {
+                    SetData(_data);
+                    return _data;
+                }
+                else
+                {
+                    return data;
+                }
             }
             else
             {
@@ -31,33 +38,49 @@ namespace DataProcessingClient.DataHandler
             }
         }
 
-        internal override List<WerkzameBeroepsBevolkingModel> DownloadData(string resourceURL)
+        internal override WerkzameBeroepsbevolkingDataSet DownloadData(string resourceURL)
         {
             IRestResponse response = RestHelper.Get(this.BaseURL, resourceURL, Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToWB(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<WerkzameBeroepsBevolkingModel>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToWB(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<WerkzameBeroepsbevolkingDataSet>(response.Content);
+                }
             }
+            catch
+            {
+                return null;
+            }
+            
         }
 
-        internal override async Task<List<WerkzameBeroepsBevolkingModel>> DownloadDataAsync()
+        internal override async Task<WerkzameBeroepsbevolkingDataSet> DownloadDataAsync()
         {
             IRestResponse response = await RestHelper.GetAsync(this.BaseURL, $"api/WerkzameBeroepsbevolking/Get/{MaxRecords}", Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToWB(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<WerkzameBeroepsBevolkingModel>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToWB(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<WerkzameBeroepsbevolkingDataSet>(response.Content);
+                }
             }
+            catch (Exception e)
+            {
+                DataForm.ReportError(e);
+                return null;
+            }         
         }
 
-        internal override void SetData(List<WerkzameBeroepsBevolkingModel> data)
+        internal override void SetData(WerkzameBeroepsbevolkingDataSet data)
         {
             this.data = data;
         }

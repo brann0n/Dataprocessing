@@ -22,7 +22,9 @@ namespace DataProcessingWebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Formatters.Clear();
             config.Formatters.Add(new BrowserJsonFormatter());
+            config.Formatters.Add(new XMLFormatter("http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models"));
             config.SetDocumentationProvider(new XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")));
         }
     }

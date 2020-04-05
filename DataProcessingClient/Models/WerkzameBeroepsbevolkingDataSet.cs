@@ -8,14 +8,16 @@ namespace DataProcessingClient.Models
     [DesignerCategory("code")]
     [XmlType(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models")]
     [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models", IsNullable = false)]
-    public partial class ArrayOfWerkzameBeroepsbevolking : XMLConvertable<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking>
+    public partial class WerkzameBeroepsbevolkingDataSet : XMLConvertable<ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking>
     {
-
         private ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking[] werkzameBeroepsbevolkingField;
+        private string schemaName;
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation { get { return schemaName; } set { schemaName = value; } }
+        
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("WerkzameBeroepsbevolking")]
-        public ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking[] WerkzameBeroepsbevolking
+        [XmlArrayItem("WerkzameBeroepsbevolking", IsNullable = false)]
+        public ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking[] WerkzameBeroepsbevolkingArray
         {
             get
             {
@@ -29,7 +31,7 @@ namespace DataProcessingClient.Models
 
         public ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking[] GetArray()
         {
-            return WerkzameBeroepsbevolking;
+            return WerkzameBeroepsbevolkingArray;
         }
     }
 

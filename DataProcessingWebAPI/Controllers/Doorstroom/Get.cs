@@ -16,13 +16,13 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of Doorstroom items</returns>
         [HttpGet, Route("Get/{limit?}/{skip?}")]
-        public List<DoorstroomData> Get(int limit = 100, int skip = 0)
+        public DoorstroomDataDataSet Get(int limit = 100, int skip = 0)
         {
             var table = db.DSDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
-            List<DoorstroomData> lijstje = new List<DoorstroomData>();
+            DoorstroomDataDataSet lijstje = new DoorstroomDataDataSet();
             foreach (var record in table)
             {
-                lijstje.Add(record);
+                lijstje.DoorstroomDataArray.Add(record);
             }
 
             return lijstje;

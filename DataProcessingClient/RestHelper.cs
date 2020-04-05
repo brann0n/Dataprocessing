@@ -60,100 +60,65 @@ namespace DataProcessingClient
             }
         }
 
-
-
-        public static string ConvertObjectToXML<T>(T value)
-        {
-            if (value == null)
-            {
-                return string.Empty;
-            }
-            try
-            {
-                var xmlserializer = new XmlSerializer(typeof(T));
-                var stringWriter = new StringWriter();
-                using (var writer = XmlWriter.Create(stringWriter))
-                {
-                    xmlserializer.Serialize(writer, value);
-                    return stringWriter.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred", ex);
-            }
-        }
-
-        public static List<AlcoholEnDrugs> ConvertXMLToAD(string xml)
+        public static AlcoholEnDrugsDataSet ConvertXMLToAD(string xml)
         {
             if (string.IsNullOrEmpty(xml))
             {
                 return default;
             }
 
-            try
+            var xmlserializer = new XmlSerializer(typeof(AlcoholEnDrugsDataSet));
+            MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
+            AlcoholEnDrugsDataSet DeserializedXMLObject = (AlcoholEnDrugsDataSet)xmlserializer.Deserialize(memStream);
+            var validationErrors = Validator.ValidateXML(DeserializedXMLObject.SchemaLocation, xml);
+            if (validationErrors.Count == 0)
             {
-                var xmlserializer = new XmlSerializer(typeof(ArrayOfAlcoholEnDrugs));
-                MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
-                ArrayOfAlcoholEnDrugs DeserializedXMLObject = (ArrayOfAlcoholEnDrugs)xmlserializer.Deserialize(memStream);
-                List<AlcoholEnDrugs> returnArray = new List<AlcoholEnDrugs>();
-                foreach (ArrayOfAlcoholEnDrugsAlcoholEnDrugs item in DeserializedXMLObject.GetArray())
-                {
-                    returnArray.Add(item);
-                }
-                return returnArray;
+                return DeserializedXMLObject;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception("An error occurred", ex);
+                throw new Exception("AlcoholEnDrugsDataSet: Validation failed");
             }
+
         }
-        public static List<DoorstroomModel> ConvertXMLToDS(string xml)
+        public static DoorstroomDataDataSet ConvertXMLToDS(string xml)
         {
             if (string.IsNullOrEmpty(xml))
             {
                 return default;
             }
 
-            try
+            var xmlserializer = new XmlSerializer(typeof(DoorstroomDataDataSet));
+            MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
+            var DeserializedXMLObject = (DoorstroomDataDataSet)xmlserializer.Deserialize(memStream);
+            var validationErrors = Validator.ValidateXML(DeserializedXMLObject.SchemaLocation, xml);
+            if (validationErrors.Count == 0)
             {
-                var xmlserializer = new XmlSerializer(typeof(ArrayOfDoorstroomData));
-                MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
-                ArrayOfDoorstroomData DeserializedXMLObject = (ArrayOfDoorstroomData)xmlserializer.Deserialize(memStream);
-                List<DoorstroomModel> returnArray = new List<DoorstroomModel>();
-                foreach (ArrayOfDoorstroomDataDoorstroomData item in DeserializedXMLObject.GetArray())
-                {
-                    returnArray.Add(item);
-                }
-                return returnArray;
+                return DeserializedXMLObject;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception("An error occurred", ex);
+                throw new Exception("DoorstroomDataDataSet: Validation failed");
             }
         }
-        public static List<WerkzameBeroepsBevolkingModel> ConvertXMLToWB(string xml)
+        public static WerkzameBeroepsbevolkingDataSet ConvertXMLToWB(string xml)
         {
             if (string.IsNullOrEmpty(xml))
             {
                 return default;
             }
 
-            try
+            var xmlserializer = new XmlSerializer(typeof(WerkzameBeroepsbevolkingDataSet));
+            MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
+            var DeserializedXMLObject = (WerkzameBeroepsbevolkingDataSet)xmlserializer.Deserialize(memStream);
+            var validationErrors = Validator.ValidateXML(DeserializedXMLObject.SchemaLocation, xml);
+            if (validationErrors.Count == 0)
             {
-                var xmlserializer = new XmlSerializer(typeof(ArrayOfWerkzameBeroepsbevolking));
-                MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
-                ArrayOfWerkzameBeroepsbevolking DeserializedXMLObject = (ArrayOfWerkzameBeroepsbevolking)xmlserializer.Deserialize(memStream);
-                List<WerkzameBeroepsBevolkingModel> returnArray = new List<WerkzameBeroepsBevolkingModel>();
-                foreach (ArrayOfWerkzameBeroepsbevolkingWerkzameBeroepsbevolking item in DeserializedXMLObject.GetArray())
-                {
-                    returnArray.Add(item);
-                }
-                return returnArray;
+                return DeserializedXMLObject;
             }
-            catch (Exception ex)
+            else
             {
-                throw new Exception("An error occurred", ex);
+                throw new Exception("WerkzameBeroepsbevolkingDataSet: Validation failed");
             }
         }
 

@@ -8,14 +8,15 @@ namespace DataProcessingClient.Models
     [DesignerCategory("code")]
     [XmlType(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models")]
     [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models", IsNullable = false)]
-    public class ArrayOfDoorstroomData : XMLConvertable<ArrayOfDoorstroomDataDoorstroomData>
+    public class DoorstroomDataDataSet : XMLConvertable<ArrayOfDoorstroomDataDoorstroomData>
     {
-
         private ArrayOfDoorstroomDataDoorstroomData[] doorstroomDataField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DoorstroomData")]
-        public ArrayOfDoorstroomDataDoorstroomData[] DoorstroomData
+        private string schemaName;
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string SchemaLocation { get { return schemaName; } set { schemaName = value; } }
+        
+        [XmlArrayItem("DoorstroomData", IsNullable = false)]
+        public ArrayOfDoorstroomDataDoorstroomData[] DoorstroomDataArray
         {
             get
             {
@@ -29,7 +30,7 @@ namespace DataProcessingClient.Models
 
         public ArrayOfDoorstroomDataDoorstroomData[] GetArray()
         {
-            return DoorstroomData;
+            return DoorstroomDataArray;
         }
     }
 

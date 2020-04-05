@@ -8,22 +8,29 @@ using System.Threading.Tasks;
 
 namespace DataProcessingClient.DataHandler
 {
-    public class DoorstroomHandler : DataHandler<DoorstroomModel>
+    public class DoorstroomHandler : DataHandler<DoorstroomDataDataSet>
     {
-        private List<DoorstroomModel> data;
-        protected internal int Count { get => data.Count; }
+        private DoorstroomDataDataSet data;
+        protected internal int Count { get => data?.DoorstroomDataArray == null ? 0 : data.DoorstroomDataArray.Length; }
         public DoorstroomHandler(string BaseUrl, DataFormat format, int max) : base(BaseUrl, format, max)
         {
-            data = new List<DoorstroomModel>();
+            data = new DoorstroomDataDataSet();
         }
 
-        public override List<DoorstroomModel> GetData()
+        public override DoorstroomDataDataSet GetData()
         {
-            if (data.Count == 0)
+            if (data == null || Count == 0)
             {
-                List<DoorstroomModel> _data = DownloadData($"api/Doorstroom/Get/{MaxRecords}");
-                SetData(_data);
-                return _data;
+                DoorstroomDataDataSet _data = DownloadData($"api/Doorstroom/Get/{MaxRecords}");
+                if (_data != null)
+                {
+                    SetData(_data);
+                    return _data;
+                }
+                else
+                {
+                    return data;
+                }
             }
             else
             {
@@ -31,33 +38,48 @@ namespace DataProcessingClient.DataHandler
             }
         }
 
-        internal override List<DoorstroomModel> DownloadData(string resourceURL)
+        internal override DoorstroomDataDataSet DownloadData(string resourceURL)
         {
             IRestResponse response = RestHelper.Get(this.BaseURL, resourceURL, Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToDS(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<DoorstroomModel>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToDS(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<DoorstroomDataDataSet>(response.Content);
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 
-        internal override async Task<List<DoorstroomModel>> DownloadDataAsync()
+        internal override async Task<DoorstroomDataDataSet> DownloadDataAsync()
         {
             IRestResponse response = await RestHelper.GetAsync(this.BaseURL, $"api/Doorstroom/Get/{MaxRecords}", Format);
-            switch (Format)
+            try
             {
-                case DataFormat.XML:
-                    return RestHelper.ConvertXMLToDS(response.Content);
-                case DataFormat.JSON:
-                default:
-                    return RestHelper.ConvertJsonToObject<List<DoorstroomModel>>(response.Content);
+                switch (Format)
+                {
+                    case DataFormat.XML:
+                        return RestHelper.ConvertXMLToDS(response.Content);
+                    case DataFormat.JSON:
+                    default:
+                        return RestHelper.ConvertJsonToObject<DoorstroomDataDataSet>(response.Content);
+                }
             }
+            catch (Exception e)
+            {
+                DataForm.ReportError(e);
+                return null;
+            }            
         }
 
-        internal override void SetData(List<DoorstroomModel> data)
+        internal override void SetData(DoorstroomDataDataSet data)
         {
             this.data = data;
         }

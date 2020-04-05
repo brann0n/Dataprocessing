@@ -1,22 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="ArrayOfAlcoholEnDrugs">
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataProcessingWebAPI.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AlcoholEnDrugsDataSet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="AlcoholEnDrugs" maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="AlcoholEnDrugsArray">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:float" name="Alcoholgebruik"/>
-              <xs:element type="xs:string" name="BingeDrinken"/>
-              <xs:element type="xs:float" name="CannabisActiefGebruik"/>
-              <xs:element type="xs:float" name="CannabisOoitGebruikt"/>
-              <xs:element type="xs:float" name="Cocaine"/>
-              <xs:element type="xs:string" name="Geslacht"/>
-              <xs:element type="xs:string" name="Herkomst"/>
-              <xs:element type="xs:int" name="Id"/>
-              <xs:element type="xs:short" name="Perioden"/>
-              <xs:element type="xs:float" name="TotaalGebruik"/>
-              <xs:element type="xs:float" name="XTC"/>
+              <xs:element name="AlcoholEnDrugs" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="Id"/>
+                    <xs:element type="xs:string" name="Geslacht"/>
+                    <xs:element type="xs:string" name="Herkomst"/>
+                    <xs:element type="xs:string" name="Perioden"/>
+                    <xs:element type="xs:double" name="Alcoholgebruik" nillable="true"/>
+                    <xs:element type="xs:double" name="BingeDrinken" nillable="true"/>
+                    <xs:element type="xs:double" name="CannabisOoitGebruikt" nillable="true"/>
+                    <xs:element type="xs:double" name="CannabisActiefGebruik" nillable="true"/>
+                    <xs:element type="xs:double" name="TotaalGebruik" nillable="true"/>
+                    <xs:element type="xs:double" name="XTC" nillable="true"/>
+                    <xs:element type="xs:double" name="Cocaine" nillable="true"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

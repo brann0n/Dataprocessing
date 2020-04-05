@@ -14,13 +14,14 @@ namespace DataProcessingWebAPI.Controllers
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of AlcoholEnDrugs items</returns>
         [HttpGet, Route("Get/{limit?}/{skip?}")]
-        public List<AlcoholEnDrugs> Get(int limit = 100, int skip = 0)
+        //public List<AlcoholEnDrugs> Get(int limit = 100, int skip = 0)
+        public AlcoholEnDrugsDataSet Get(int limit = 100, int skip = 0)
         {
             var table = db.ADDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);
-            List<AlcoholEnDrugs> lijstje = new List<AlcoholEnDrugs>();
+            AlcoholEnDrugsDataSet lijstje = new AlcoholEnDrugsDataSet();
             foreach (var record in table)
             {
-                lijstje.Add(record);
+                lijstje.AlcoholEnDrugsArray.Add(record);
             }
             return lijstje;
         }

@@ -25,10 +25,10 @@ namespace DataProcessingClient.DataHandler
             MaxRecords = max;
         }
 
-        public abstract List<T> GetData();
+        public abstract T GetData();
 
-        internal abstract void SetData(List<T> data);
-        internal abstract List<T> DownloadData(string resourceURL);
-        internal abstract Task<List<T>> DownloadDataAsync();
+        internal abstract void SetData(T data);
+        internal abstract T DownloadData(string resourceURL);
+        internal abstract Task<T> DownloadDataAsync();
     }
 }
