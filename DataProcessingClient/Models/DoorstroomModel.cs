@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DataProcessingWebAPI.Models
+namespace DataProcessingClient.Models
 {
-    public class DoorstroomData
+    public class DoorstroomModel
     {
         public int Id { get; set; }
         public string Geslacht { get; set; }
@@ -91,17 +92,16 @@ namespace DataProcessingWebAPI.Models
         /// Converts the database item into a api friendly item
         /// </summary>
         /// <param name="d">item to convert</param>
-        public static implicit operator DoorstroomData(DSDataSet d)
+        public static implicit operator DoorstroomModel(ArrayOfDoorstroomDataDoorstroomData d)
         {
-            DataProcessingEntities db = new DataProcessingEntities();
-            DoorstroomData item = new DoorstroomData
+            DoorstroomModel item = new DoorstroomModel
             {
                 Id = d.Id,
-                Geslacht = db.DSGeslachts.FirstOrDefault(n => n.Key == d.Geslacht)?.Title,
-                MboLeerwegEnNiveau = db.DSMboLeerwegEnNiveaux.FirstOrDefault(n => n.Key == d.MboLeerwegEnNiveau)?.Title,
-                MboRichtingEnSector = db.DSMboRichtingEnSectors.FirstOrDefault(n => n.Key == d.MboRichtingEnSector)?.Title,
-                Persoonskenmerken = db.DSPersoonsKenmerkens.FirstOrDefault(n => n.Key == d.Persoonskenmerken)?.Title,
-                Perioden = db.DSPeriodens.FirstOrDefault(n => n.Key == d.Perioden)?.Title,
+                Geslacht =  d.Geslacht,
+                MboLeerwegEnNiveau =  d.MboLeerwegEnNiveau,
+                MboRichtingEnSector = d.MboRichtingEnSector,
+                Persoonskenmerken = d.Persoonskenmerken,
+                Perioden =  d.Perioden,
                 TotaalDoorstroomLeerling_1 = d.TotaalDoorstroomLeerling_1,
                 Leerjaar12_2 = d.Leerjaar12_2,
                 Vmbo3Totaal_3 = d.Vmbo3Totaal_3,

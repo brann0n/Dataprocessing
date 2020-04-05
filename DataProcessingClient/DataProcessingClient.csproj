@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,9 +60,20 @@
     <Compile Include="DataForm.Designer.cs">
       <DependentUpon>DataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataHandler\AlcoholEnDrugsHandler.cs" />
+    <Compile Include="DataHandler\DataHandler.cs" />
+    <Compile Include="DataHandler\DoorstroomHandler.cs" />
+    <Compile Include="DataHandler\WerkzameBeroepsBevolkingHandler.cs" />
+    <Compile Include="Models\AlcoholEnDrugs.cs" />
+    <Compile Include="Models\ArrayOfAlcoholEnDrugs.cs" />
+    <Compile Include="Models\ArrayOfDoorstroomData.cs" />
+    <Compile Include="Models\ArrayOfWerkzameBeroepsbevolking.cs" />
+    <Compile Include="Models\DoorstroomModel.cs" />
+    <Compile Include="Models\WerkzameBeroepsBevolkingModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestHelper.cs" />
+    <Compile Include="XMLConvertable.cs" />
     <EmbeddedResource Include="DataForm.resx">
       <DependentUpon>DataForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,8 +100,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataHandler\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
