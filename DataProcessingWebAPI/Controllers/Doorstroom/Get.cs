@@ -10,6 +10,17 @@ namespace DataProcessingWebAPI.Controllers
     public partial class DoorstroomController
     {
         /// <summary>
+        /// Gets the item by id
+        /// </summary>
+        /// <param name="id">the item to get</param>
+        /// <returns>the item you want</returns>
+        [HttpGet]
+        public DoorstroomData Get(int id)
+        {
+            return db.DSDataSets.FirstOrDefault(n => n.Id == id);
+        }
+
+        /// <summary>
         /// Get the data in a friendly readable format
         /// </summary>
         /// <param name="limit">the amount of items to get</param>

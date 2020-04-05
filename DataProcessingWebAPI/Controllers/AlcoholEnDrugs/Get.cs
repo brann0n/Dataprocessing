@@ -8,13 +8,23 @@ namespace DataProcessingWebAPI.Controllers
     public partial class AlcolholEnDrugsController
     {
         /// <summary>
+        /// Gets the item by id
+        /// </summary>
+        /// <param name="id">the item to get</param>
+        /// <returns>the item you want</returns>
+        [HttpGet]
+        public AlcoholEnDrugs Get(int id)
+        {
+            return db.ADDataSets.FirstOrDefault(n => n.Id == id);
+        }
+
+        /// <summary>
         /// Get the data in a friendly readable format
         /// </summary>
         /// <param name="limit">the amount of items to get</param>
         /// <param name="skip">the amount of items to skip</param>
         /// <returns>a full list of AlcoholEnDrugs items</returns>
         [HttpGet, Route("Get/{limit?}/{skip?}")]
-        //public List<AlcoholEnDrugs> Get(int limit = 100, int skip = 0)
         public AlcoholEnDrugsDataSet Get(int limit = 100, int skip = 0)
         {
             var table = db.ADDataSets.OrderBy(n => n.Id).Skip(skip).Take(limit);

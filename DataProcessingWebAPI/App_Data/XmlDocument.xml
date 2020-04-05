@@ -609,6 +609,13 @@
             <param name="id">key of the delete item</param>
             <returns>200 or 404</returns>
         </member>
+        <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.Get(System.Int32)">
+            <summary>
+            Gets the item by id
+            </summary>
+            <param name="id">the item to get</param>
+            <returns>the item you want</returns>
+        </member>
         <member name="M:DataProcessingWebAPI.Controllers.AlcolholEnDrugsController.Get(System.Int32,System.Int32)">
             <summary>
             Get the data in a friendly readable format
@@ -817,6 +824,13 @@
             <param name="id">key of the delete item</param>
             <returns>200 or 404</returns>
         </member>
+        <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.Get(System.Int32)">
+            <summary>
+            Gets the item by id
+            </summary>
+            <param name="id">the item to get</param>
+            <returns>the item you want</returns>
+        </member>
         <member name="M:DataProcessingWebAPI.Controllers.DoorstroomController.Get(System.Int32,System.Int32)">
             <summary>
             Get the data in a friendly readable format
@@ -993,6 +1007,13 @@
             </summary>
             <param name="id">key of the delete item</param>
             <returns>200 or 404</returns>
+        </member>
+        <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.Get(System.Int32)">
+            <summary>
+            Gets the item by id
+            </summary>
+            <param name="id">the item to get</param>
+            <returns>the item you want</returns>
         </member>
         <member name="M:DataProcessingWebAPI.Controllers.WerkzameBeroepsbevolkingController.Get(System.Int32,System.Int32)">
             <summary>

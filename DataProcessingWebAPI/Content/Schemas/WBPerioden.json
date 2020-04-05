@@ -1,0 +1,34 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Root",
+  "type": "array",
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "properties": {
+      "Key": {
+        "$id": "#root/items/Key",
+        "title": "Key",
+        "type": "string",
+        "default": "",
+        "pattern": "^.*$"
+      },
+      "Title": {
+        "$id": "#root/items/Title",
+        "title": "Title",
+        "type": "string",
+        "default": "",
+        "pattern": "^.*$"
+      },
+      "CategoryGroupID": {
+        "$id": "#root/items/CategoryGroupID",
+        "title": "Categorygroupid",
+        "type": "integer",
+        "default": 0
+      }
+    }
+  }
+}

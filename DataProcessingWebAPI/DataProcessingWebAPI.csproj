@@ -264,6 +264,7 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Schemas\ADHerkomst.json" />
     <None Include="Content\Schemas\ADHerkomst.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -271,9 +272,11 @@
     <None Include="Content\Schemas\DoorstroomData.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\Schemas\DSPerioden.json" />
     <None Include="Content\Schemas\DSPerioden.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\Schemas\WBPerioden.json" />
     <None Include="Content\Schemas\WBPerioden.xsd">
       <SubType>Designer</SubType>
     </None>

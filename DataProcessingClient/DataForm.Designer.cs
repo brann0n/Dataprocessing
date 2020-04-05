@@ -184,6 +184,7 @@
             // chartAD1
             // 
             this.chartAD1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chartAD1.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.Transparent;
