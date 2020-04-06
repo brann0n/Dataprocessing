@@ -9,6 +9,7 @@ Deze API moet dan geconsumeerd worden in een client applicatie die kan schakelen
 ### DataProcessingClient [Naar project](https://github.com/brann0n/Dataprocessing/tree/master/DataProcessingClient)
 Dit project is de client applicatie gemaakt in C# die de REST API consumeerd. 
 Voor het uitvoeren van webrequests heb ik de RESTSharp plugin gebruikt
+
 ![Client](/Images/DataProcessing.png)
 
 ### DataProcessingDataImporter [Naar project](https://github.com/brann0n/Dataprocessing/tree/master/DataProcessingDataImporter)
@@ -17,11 +18,22 @@ bij het installeren van de API)
 
 ### DataProcessingWebAPI [Naar project](https://github.com/brann0n/Dataprocessing/tree/master/DataProcessingWebAPI)
 Dit project bevat de source code van de REST API, 
+
+Schakelen tussen XML en Json kan door de Accept header aan te passen.
+
+Voor json:
+```Accept: application/json```
+
+Voor xml:
+```Accept: application/xml```
+
 in de huidige configuratie werkt deze via IISExpress maar hij kan geconfigureerd worden om in IIS zelf te werken.
 Hiervoor moet dan wel ASP 4.8 en ASP.NET 4.8 voor worden ingeschakeld
 
 ## Database
 In het _**DataProcessingDataImporter**_ Project zit een [SQL file](https://github.com/brann0n/Dataprocessing/blob/master/DataProcessingDataImporter/SQL%20Tables.sql) die de database kan aanmaken, de data zelf zit hier niet in, daar is het importeer programma voor. 
+
 ![Tabellen](/Images/Tables.png)
+
 De locatie van de database maakt niet uit, zolang de connectionstrings in de uiteindelijke
-_**DataProcessingWebAPI**_ en _**DataProcessingDataImporter**_ projecten hier maar naar toe wijst.
+_**DataProcessingWebAPI**_ en _**DataProcessingDataImporter**_ projecten hier maar naar toe wijzen.
