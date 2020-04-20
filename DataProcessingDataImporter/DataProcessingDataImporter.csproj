@@ -145,8 +145,8 @@
   <ItemGroup>
     <Content Include="Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.Context.cs</LastGenOutput>
       <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

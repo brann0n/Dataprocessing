@@ -29,14 +29,14 @@ namespace DataProcessingDataImporter
         public virtual DbSet<ADGeslacht> ADGeslacht { get; set; }
         public virtual DbSet<ADHerkomst> ADHerkomst { get; set; }
         public virtual DbSet<ADPerioden> ADPerioden { get; set; }
-        public virtual DbSet<DSDataSet> DSDataSet { get; set; }
+        public virtual DbSet<DSDataSet> DSDataSet{ get; set; }
+        public virtual DbSet<DSGeslacht> DSGeslacht { get; set; }
         public virtual DbSet<DSMboLeerwegEnNiveau> DSMboLeerwegEnNiveau { get; set; }
         public virtual DbSet<DSMboRichtingEnSector> DSMboRichtingEnSector { get; set; }
+        public virtual DbSet<DSPerioden> DSPerioden { get; set; }
         public virtual DbSet<DSPersoonsKenmerken> DSPersoonsKenmerken { get; set; }
         public virtual DbSet<WBDataSet> WBDataSet { get; set; }
         public virtual DbSet<WBKenmerken> WBKenmerken { get; set; }
         public virtual DbSet<WBPerioden> WBPerioden { get; set; }
-        public virtual DbSet<DSGeslacht> DSGeslacht { get; set; }
-        public virtual DbSet<DSPerioden> DSPerioden { get; set; }
     }
 }

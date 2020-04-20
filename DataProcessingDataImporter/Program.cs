@@ -89,7 +89,7 @@ namespace DataProcessingDataImporter
                 {
                     db.ADDataSet.Add(new ADDataSet
                     {
-                        Alcoholgebruik = model.Alcoholgebruik_1,
+						Alcoholgebruik = model.Alcoholgebruik_1,
                         BingeDrinken = model.BingeDrinken_2,
                         CannabisActiefGebruik = model.CannabisActiefGebruik_4,
                         CannabisOoitGebruikt = model.CannabisOoitGebruikt_3,
@@ -97,7 +97,7 @@ namespace DataProcessingDataImporter
                         Geslacht = model.Geslacht,
                         Herkomst = model.Herkomst,
                         Perioden = model.Perioden,
-                        Id = model.ID,
+                        
                         TotaalGebruik = model.TotaalGebruik_5,
                         XTC = model.XTC_6
                     });
@@ -175,7 +175,7 @@ namespace DataProcessingDataImporter
                     db.WBDataSet.Add(new WBDataSet
                     {
                         CreatieveZakelijkeDienstverlening = model.CreatieveZakelijkeDienstverlening_5,
-                        Id = model.ID,
+                        
                         Kenmerken = model.Kenmerken,
                         Kunsten = model.Kunsten_3,
                         MediaEnEntertainment = model.MediaEnEntertainment_4,
@@ -323,7 +323,7 @@ namespace DataProcessingDataImporter
                     saveCounter++;
                     db.DSDataSet.Add(new DSDataSet
                     {
-                        Id = model.ID,
+                        
                         Geslacht = model.Geslacht,
                         MboLeerwegEnNiveau = model.MboLeerwegEnNiveau,
                         MboRichtingEnSector = model.MboRichtingEnSector,

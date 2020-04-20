@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e9cdceacd1bb4ff980b12b2b5eb5c77e" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="DataProcessingModel.ADDataSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.ADGeslacht" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.ADHerkomst" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.ADPerioden" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSDataSet" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSMboLeerwegEnNiveau" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSMboRichtingEnSector" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSPersoonsKenmerken" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.WBDataSet" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.WBKenmerken" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.WBPerioden" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSGeslacht" Width="1.5" PointX="0.75" PointY="9.75" />
-        <EntityTypeShape EntityType="DataProcessingModel.DSPerioden" Width="1.5" PointX="9.75" PointY="6.75" />
+      <Diagram DiagramId="848c9ddeec6a42f2bf1fb066d3adfe96" Name="Diagram1">
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADDataSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADGeslacht" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADHerkomst" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADPerioden" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSDataSet" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSGeslacht" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSMboLeerwegEnNiveau" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSMboRichtingEnSector" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSPerioden" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSPersoonsKenmerken" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBDataSet" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBKenmerken" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBPerioden" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

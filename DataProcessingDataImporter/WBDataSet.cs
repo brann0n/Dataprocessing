@@ -17,13 +17,13 @@ namespace DataProcessingDataImporter
         public int Id { get; set; }
         public string Kenmerken { get; set; }
         public string Perioden { get; set; }
-        public Nullable<int> WerkzameBeroepsbevolkingTotaal { get; set; }
-        public Nullable<int> TotaalCreatieveBeroepen { get; set; }
-        public Nullable<int> Kunsten { get; set; }
-        public Nullable<int> MediaEnEntertainment { get; set; }
-        public Nullable<int> CreatieveZakelijkeDienstverlening { get; set; }
-        public Nullable<int> OverigeCreatieveBeroepen { get; set; }
-        public Nullable<int> WerkzPersMetNietCreatieveBeroep { get; set; }
-        public Nullable<int> WerkzPersMetBeroepOnbekend { get; set; }
+        public Nullable<decimal> WerkzameBeroepsbevolkingTotaal { get; set; }
+        public Nullable<decimal> TotaalCreatieveBeroepen { get; set; }
+        public Nullable<decimal> Kunsten { get; set; }
+        public Nullable<decimal> MediaEnEntertainment { get; set; }
+        public Nullable<decimal> CreatieveZakelijkeDienstverlening { get; set; }
+        public Nullable<decimal> OverigeCreatieveBeroepen { get; set; }
+        public Nullable<decimal> WerkzPersMetNietCreatieveBeroep { get; set; }
+        public Nullable<decimal> WerkzPersMetBeroepOnbekend { get; set; }
     }
 }

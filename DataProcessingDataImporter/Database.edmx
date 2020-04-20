@@ -4,15 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DataProcessingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Geslacht" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Herkomst" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Perioden" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Geslacht" Type="nvarchar" MaxLength="220" />
+          <Property Name="Herkomst" Type="nvarchar" MaxLength="220" />
+          <Property Name="Perioden" Type="nvarchar" MaxLength="220" />
           <Property Name="Alcoholgebruik" Type="float" />
           <Property Name="BingeDrinken" Type="float" />
           <Property Name="CannabisOoitGebruikt" Type="float" />
@@ -23,185 +23,199 @@
         </EntityType>
         <EntityType Name="ADGeslacht">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
         </EntityType>
         <EntityType Name="ADHerkomst">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="CategoryGroupID" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="CategoryGroupID" Type="decimal" Precision="28" Scale="6" />
         </EntityType>
         <EntityType Name="ADPerioden">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
         </EntityType>
         <EntityType Name="DSDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Geslacht" Type="nvarchar" MaxLength="50" />
-          <Property Name="MboLeerwegEnNiveau" Type="nvarchar" MaxLength="50" />
-          <Property Name="MboRichtingEnSector" Type="nvarchar" MaxLength="50" />
-          <Property Name="Persoonskenmerken" Type="nvarchar" MaxLength="50" />
-          <Property Name="Perioden" Type="nvarchar" MaxLength="50" />
-          <Property Name="TotaalDoorstroomLeerling_1" Type="int" />
-          <Property Name="Leerjaar12_2" Type="int" />
-          <Property Name="Vmbo3Totaal_3" Type="int" />
-          <Property Name="Totaal_4" Type="int" />
-          <Property Name="LandbouwBKG_5" Type="int" />
-          <Property Name="ZorgEnWelzijnBKG_6" Type="int" />
-          <Property Name="EconomieBKG_7" Type="int" />
-          <Property Name="TechniekBKG_8" Type="int" />
-          <Property Name="CombinatieBKG_9" Type="int" />
-          <Property Name="GeenSectorT_10" Type="int" />
-          <Property Name="Totaal_11" Type="int" />
-          <Property Name="LandbouwBKG_12" Type="int" />
-          <Property Name="ZorgEnWelzijnBKG_13" Type="int" />
-          <Property Name="EconomieBKG_14" Type="int" />
-          <Property Name="TechniekBKG_15" Type="int" />
-          <Property Name="CombinatieBKG_16" Type="int" />
-          <Property Name="GeenSectorT_17" Type="int" />
-          <Property Name="Totaal_18" Type="int" />
-          <Property Name="LandbouwBKG_19" Type="int" />
-          <Property Name="ZorgEnWelzijnBKG_20" Type="int" />
-          <Property Name="EconomieBKG_21" Type="int" />
-          <Property Name="TechniekBKG_22" Type="int" />
-          <Property Name="CombinatieBKG_23" Type="int" />
-          <Property Name="GeenSectorT_24" Type="int" />
-          <Property Name="Totaal_25" Type="int" />
-          <Property Name="Totaal_26" Type="int" />
-          <Property Name="BasisberoepsgerichteLeerweg_27" Type="int" />
-          <Property Name="KaderberoepsgerichteLeerweg_28" Type="int" />
-          <Property Name="Totaal_29" Type="int" />
-          <Property Name="GemengdeLeerweg_30" Type="int" />
-          <Property Name="TheoretischeLeerweg_31" Type="int" />
-          <Property Name="Totaal_32" Type="int" />
-          <Property Name="Totaal_33" Type="int" />
-          <Property Name="BasisberoepsgerichteLeerweg_34" Type="int" />
-          <Property Name="KaderberoepsgerichteLeerweg_35" Type="int" />
-          <Property Name="Totaal_36" Type="int" />
-          <Property Name="GemengdeLeerweg_37" Type="int" />
-          <Property Name="TheoretischeLeerweg_38" Type="int" />
-          <Property Name="Totaal_39" Type="int" />
-          <Property Name="Landbouw_40" Type="int" />
-          <Property Name="ZorgEnWelzijn_40" Type="int" />
-          <Property Name="Economie_42" Type="int" />
-          <Property Name="Techniek_43" Type="int" />
-          <Property Name="Combinatie_44" Type="int" />
-          <Property Name="Totaal_45" Type="int" />
-          <Property Name="Landbouw_46" Type="int" />
-          <Property Name="ZorgEnWelzijn_47" Type="int" />
-          <Property Name="Economie_48" Type="int" />
-          <Property Name="Techniek_49" Type="int" />
-          <Property Name="Combinatie_50" Type="int" />
-          <Property Name="Totaal_51" Type="int" />
-          <Property Name="Landbouw_52" Type="int" />
-          <Property Name="ZorgEnWelzijn_53" Type="int" />
-          <Property Name="Economie_54" Type="int" />
-          <Property Name="Techniek_55" Type="int" />
-          <Property Name="Combinatie_56" Type="int" />
-          <Property Name="Totaal_57" Type="int" />
-          <Property Name="Totaal_58" Type="int" />
-          <Property Name="Landbouw_59" Type="int" />
-          <Property Name="ZorgEnWelzijn_60" Type="int" />
-          <Property Name="Economie_61" Type="int" />
-          <Property Name="Techniek_62" Type="int" />
-          <Property Name="Combinatie_63" Type="int" />
-          <Property Name="TheoretischeLeerweg_64" Type="int" />
-          <Property Name="HavoVwoInclAlgLeerjr_65" Type="int" />
-          <Property Name="Havo4Totaal_66" Type="int" />
-          <Property Name="Havo5Totaal_67" Type="int" />
-          <Property Name="Havo5MetDiploma_68" Type="int" />
-          <Property Name="Havo5ZonderDiploma_69" Type="int" />
-          <Property Name="Vwo46Totaal_70" Type="int" />
-          <Property Name="Vwo6MetDiploma_71" Type="int" />
-          <Property Name="Vwo46ZonderDiploma_72" Type="int" />
-          <Property Name="Praktijkonderwijs_73" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Geslacht" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="MboLeerwegEnNiveau" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="MboRichtingEnSector" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Persoonskenmerken" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Perioden" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="TotaalDoorstroomLeerling_1" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Leerjaar12_2" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Vmbo3Totaal_3" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_4" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_5" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_6" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_7" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_8" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_9" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_10" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_11" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_12" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_13" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_14" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_15" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_16" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_17" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_18" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_19" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_20" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_21" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_22" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_23" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_24" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_25" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_26" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="BasisberoepsgerichteLeerweg_27" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="KaderberoepsgerichteLeerweg_28" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_29" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="GemengdeLeerweg_30" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_31" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_32" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_33" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="BasisberoepsgerichteLeerweg_34" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="KaderberoepsgerichteLeerweg_35" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_36" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="GemengdeLeerweg_37" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_38" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_39" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_40" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_40" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_42" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_43" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_44" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_45" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_46" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_47" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_48" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_49" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_50" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_51" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_52" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_53" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_54" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_55" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_56" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_57" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_58" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_59" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_60" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_61" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_62" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_63" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_64" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="HavoVwoInclAlgLeerjr_65" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Havo4Totaal_66" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5Totaal_67" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5MetDiploma_68" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5ZonderDiploma_69" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo46Totaal_70" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo6MetDiploma_71" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo46ZonderDiploma_72" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Praktijkonderwijs_73" Type="decimal" Precision="28" Scale="6" />
         </EntityType>
         <EntityType Name="DSGeslacht">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DSMboLeerwegEnNiveau">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DSMboRichtingEnSector">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DSPerioden">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DSPersoonsKenmerken">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="WBDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Kenmerken" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Perioden" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="WerkzameBeroepsbevolkingTotaal" Type="int" />
-          <Property Name="TotaalCreatieveBeroepen" Type="int" />
-          <Property Name="Kunsten" Type="int" />
-          <Property Name="MediaEnEntertainment" Type="int" />
-          <Property Name="CreatieveZakelijkeDienstverlening" Type="int" />
-          <Property Name="OverigeCreatieveBeroepen" Type="int" />
-          <Property Name="WerkzPersMetNietCreatieveBeroep" Type="int" />
-          <Property Name="WerkzPersMetBeroepOnbekend" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kenmerken" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Perioden" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="WerkzameBeroepsbevolkingTotaal" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="TotaalCreatieveBeroepen" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="Kunsten" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="MediaEnEntertainment" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="CreatieveZakelijkeDienstverlening" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="OverigeCreatieveBeroepen" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="WerkzPersMetNietCreatieveBeroep" Type="decimal" Precision="28" Scale="6" />
+          <Property Name="WerkzPersMetBeroepOnbekend" Type="decimal" Precision="28" Scale="6" />
         </EntityType>
         <EntityType Name="WBKenmerken">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="WBPerioden">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="220" />
+          <Property Name="Status" Type="nvarchar" MaxLength="220" />
         </EntityType>
-        <EntityContainer Name="DataProcessingModelStoreContainer">
+        <EntityContainer Name="db_a3d9c79d_7479_4341_8168_a32f09b718a1ModelStoreContainer">
           <EntitySet Name="ADDataSet" EntityType="Self.ADDataSet" Schema="Access" store:Type="Tables" />
           <EntitySet Name="ADGeslacht" EntityType="Self.ADGeslacht" Schema="Access" store:Type="Tables" />
           <EntitySet Name="ADHerkomst" EntityType="Self.ADHerkomst" Schema="Access" store:Type="Tables" />
@@ -216,18 +230,19 @@
           <EntitySet Name="WBKenmerken" EntityType="Self.WBKenmerken" Schema="Access" store:Type="Tables" />
           <EntitySet Name="WBPerioden" EntityType="Self.WBPerioden" Schema="Access" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DataProcessingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ADDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Geslacht" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Herkomst" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Perioden" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Geslacht" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Herkomst" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Perioden" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
           <Property Name="Alcoholgebruik" Type="Double" />
           <Property Name="BingeDrinken" Type="Double" />
           <Property Name="CannabisOoitGebruikt" Type="Double" />
@@ -238,207 +253,221 @@
         </EntityType>
         <EntityType Name="ADGeslacht">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ADHerkomst">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryGroupID" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryGroupID" Type="Decimal" Precision="28" Scale="6" />
         </EntityType>
         <EntityType Name="ADPerioden">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DSDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Geslacht" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MboLeerwegEnNiveau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MboRichtingEnSector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Persoonskenmerken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Perioden" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TotaalDoorstroomLeerling_1" Type="Int32" />
-          <Property Name="Leerjaar12_2" Type="Int32" />
-          <Property Name="Vmbo3Totaal_3" Type="Int32" />
-          <Property Name="Totaal_4" Type="Int32" />
-          <Property Name="LandbouwBKG_5" Type="Int32" />
-          <Property Name="ZorgEnWelzijnBKG_6" Type="Int32" />
-          <Property Name="EconomieBKG_7" Type="Int32" />
-          <Property Name="TechniekBKG_8" Type="Int32" />
-          <Property Name="CombinatieBKG_9" Type="Int32" />
-          <Property Name="GeenSectorT_10" Type="Int32" />
-          <Property Name="Totaal_11" Type="Int32" />
-          <Property Name="LandbouwBKG_12" Type="Int32" />
-          <Property Name="ZorgEnWelzijnBKG_13" Type="Int32" />
-          <Property Name="EconomieBKG_14" Type="Int32" />
-          <Property Name="TechniekBKG_15" Type="Int32" />
-          <Property Name="CombinatieBKG_16" Type="Int32" />
-          <Property Name="GeenSectorT_17" Type="Int32" />
-          <Property Name="Totaal_18" Type="Int32" />
-          <Property Name="LandbouwBKG_19" Type="Int32" />
-          <Property Name="ZorgEnWelzijnBKG_20" Type="Int32" />
-          <Property Name="EconomieBKG_21" Type="Int32" />
-          <Property Name="TechniekBKG_22" Type="Int32" />
-          <Property Name="CombinatieBKG_23" Type="Int32" />
-          <Property Name="GeenSectorT_24" Type="Int32" />
-          <Property Name="Totaal_25" Type="Int32" />
-          <Property Name="Totaal_26" Type="Int32" />
-          <Property Name="BasisberoepsgerichteLeerweg_27" Type="Int32" />
-          <Property Name="KaderberoepsgerichteLeerweg_28" Type="Int32" />
-          <Property Name="Totaal_29" Type="Int32" />
-          <Property Name="GemengdeLeerweg_30" Type="Int32" />
-          <Property Name="TheoretischeLeerweg_31" Type="Int32" />
-          <Property Name="Totaal_32" Type="Int32" />
-          <Property Name="Totaal_33" Type="Int32" />
-          <Property Name="BasisberoepsgerichteLeerweg_34" Type="Int32" />
-          <Property Name="KaderberoepsgerichteLeerweg_35" Type="Int32" />
-          <Property Name="Totaal_36" Type="Int32" />
-          <Property Name="GemengdeLeerweg_37" Type="Int32" />
-          <Property Name="TheoretischeLeerweg_38" Type="Int32" />
-          <Property Name="Totaal_39" Type="Int32" />
-          <Property Name="Landbouw_40" Type="Int32" />
-          <Property Name="ZorgEnWelzijn_40" Type="Int32" />
-          <Property Name="Economie_42" Type="Int32" />
-          <Property Name="Techniek_43" Type="Int32" />
-          <Property Name="Combinatie_44" Type="Int32" />
-          <Property Name="Totaal_45" Type="Int32" />
-          <Property Name="Landbouw_46" Type="Int32" />
-          <Property Name="ZorgEnWelzijn_47" Type="Int32" />
-          <Property Name="Economie_48" Type="Int32" />
-          <Property Name="Techniek_49" Type="Int32" />
-          <Property Name="Combinatie_50" Type="Int32" />
-          <Property Name="Totaal_51" Type="Int32" />
-          <Property Name="Landbouw_52" Type="Int32" />
-          <Property Name="ZorgEnWelzijn_53" Type="Int32" />
-          <Property Name="Economie_54" Type="Int32" />
-          <Property Name="Techniek_55" Type="Int32" />
-          <Property Name="Combinatie_56" Type="Int32" />
-          <Property Name="Totaal_57" Type="Int32" />
-          <Property Name="Totaal_58" Type="Int32" />
-          <Property Name="Landbouw_59" Type="Int32" />
-          <Property Name="ZorgEnWelzijn_60" Type="Int32" />
-          <Property Name="Economie_61" Type="Int32" />
-          <Property Name="Techniek_62" Type="Int32" />
-          <Property Name="Combinatie_63" Type="Int32" />
-          <Property Name="TheoretischeLeerweg_64" Type="Int32" />
-          <Property Name="HavoVwoInclAlgLeerjr_65" Type="Int32" />
-          <Property Name="Havo4Totaal_66" Type="Int32" />
-          <Property Name="Havo5Totaal_67" Type="Int32" />
-          <Property Name="Havo5MetDiploma_68" Type="Int32" />
-          <Property Name="Havo5ZonderDiploma_69" Type="Int32" />
-          <Property Name="Vwo46Totaal_70" Type="Int32" />
-          <Property Name="Vwo6MetDiploma_71" Type="Int32" />
-          <Property Name="Vwo46ZonderDiploma_72" Type="Int32" />
-          <Property Name="Praktijkonderwijs_73" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Geslacht" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MboLeerwegEnNiveau" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MboRichtingEnSector" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Persoonskenmerken" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Perioden" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotaalDoorstroomLeerling_1" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Leerjaar12_2" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Vmbo3Totaal_3" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_4" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_5" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_6" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_7" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_8" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_9" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_10" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_11" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_12" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_13" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_14" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_15" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_16" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_17" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_18" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="LandbouwBKG_19" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijnBKG_20" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="EconomieBKG_21" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TechniekBKG_22" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="CombinatieBKG_23" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="GeenSectorT_24" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_25" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_26" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="BasisberoepsgerichteLeerweg_27" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="KaderberoepsgerichteLeerweg_28" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_29" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="GemengdeLeerweg_30" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_31" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_32" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_33" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="BasisberoepsgerichteLeerweg_34" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="KaderberoepsgerichteLeerweg_35" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_36" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="GemengdeLeerweg_37" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_38" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_39" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_40" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_40" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_42" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_43" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_44" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_45" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_46" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_47" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_48" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_49" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_50" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_51" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_52" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_53" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_54" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_55" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_56" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_57" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Totaal_58" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Landbouw_59" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="ZorgEnWelzijn_60" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Economie_61" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Techniek_62" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Combinatie_63" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TheoretischeLeerweg_64" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="HavoVwoInclAlgLeerjr_65" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Havo4Totaal_66" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5Totaal_67" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5MetDiploma_68" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Havo5ZonderDiploma_69" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo46Totaal_70" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo6MetDiploma_71" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Vwo46ZonderDiploma_72" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Praktijkonderwijs_73" Type="Decimal" Precision="28" Scale="6" />
+        </EntityType>
+        <EntityType Name="DSGeslacht">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DSMboLeerwegEnNiveau">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DSMboRichtingEnSector">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DSPerioden">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DSPersoonsKenmerken">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="WBDataSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Kenmerken" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Perioden" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="WerkzameBeroepsbevolkingTotaal" Type="Int32" />
-          <Property Name="TotaalCreatieveBeroepen" Type="Int32" />
-          <Property Name="Kunsten" Type="Int32" />
-          <Property Name="MediaEnEntertainment" Type="Int32" />
-          <Property Name="CreatieveZakelijkeDienstverlening" Type="Int32" />
-          <Property Name="OverigeCreatieveBeroepen" Type="Int32" />
-          <Property Name="WerkzPersMetNietCreatieveBeroep" Type="Int32" />
-          <Property Name="WerkzPersMetBeroepOnbekend" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kenmerken" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Perioden" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WerkzameBeroepsbevolkingTotaal" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="TotaalCreatieveBeroepen" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="Kunsten" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="MediaEnEntertainment" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="CreatieveZakelijkeDienstverlening" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="OverigeCreatieveBeroepen" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="WerkzPersMetNietCreatieveBeroep" Type="Decimal" Precision="28" Scale="6" />
+          <Property Name="WerkzPersMetBeroepOnbekend" Type="Decimal" Precision="28" Scale="6" />
         </EntityType>
         <EntityType Name="WBKenmerken">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="WBPerioden">
           <Key>
-            <PropertyRef Name="Key" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="DataProcessingEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ADDataSet" EntityType="Self.ADDataSet" />
-          <EntitySet Name="ADGeslacht" EntityType="Self.ADGeslacht" />
-          <EntitySet Name="ADHerkomst" EntityType="Self.ADHerkomst" />
-          <EntitySet Name="ADPerioden" EntityType="Self.ADPerioden" />
-          <EntitySet Name="DSDataSet" EntityType="Self.DSDataSet" />
-          <EntitySet Name="DSMboLeerwegEnNiveau" EntityType="Self.DSMboLeerwegEnNiveau" />
-          <EntitySet Name="DSMboRichtingEnSector" EntityType="Self.DSMboRichtingEnSector" />
-          <EntitySet Name="DSPersoonsKenmerken" EntityType="Self.DSPersoonsKenmerken" />
-          <EntitySet Name="WBDataSet" EntityType="Self.WBDataSet" />
-          <EntitySet Name="WBKenmerken" EntityType="Self.WBKenmerken" />
-          <EntitySet Name="WBPerioden" EntityType="Self.WBPerioden" />
-          <EntitySet Name="DSGeslacht" EntityType="DataProcessingModel.DSGeslacht" />
-          <EntitySet Name="DSPerioden" EntityType="DataProcessingModel.DSPerioden" />
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADDataSets" EntityType="Self.ADDataSet" />
+          <EntitySet Name="ADGeslachts" EntityType="Self.ADGeslacht" />
+          <EntitySet Name="ADHerkomsts" EntityType="Self.ADHerkomst" />
+          <EntitySet Name="ADPeriodens" EntityType="Self.ADPerioden" />
+          <EntitySet Name="DSDataSets" EntityType="Self.DSDataSet" />
+          <EntitySet Name="DSGeslachts" EntityType="Self.DSGeslacht" />
+          <EntitySet Name="DSMboLeerwegEnNiveaux" EntityType="Self.DSMboLeerwegEnNiveau" />
+          <EntitySet Name="DSMboRichtingEnSectors" EntityType="Self.DSMboRichtingEnSector" />
+          <EntitySet Name="DSPeriodens" EntityType="Self.DSPerioden" />
+          <EntitySet Name="DSPersoonsKenmerkens" EntityType="Self.DSPersoonsKenmerken" />
+          <EntitySet Name="WBDataSets" EntityType="Self.WBDataSet" />
+          <EntitySet Name="WBKenmerkens" EntityType="Self.WBKenmerken" />
+          <EntitySet Name="WBPeriodens" EntityType="Self.WBPerioden" />
         </EntityContainer>
-        <EntityType Name="DSGeslacht">
-          <Key>
-            <PropertyRef Name="Key" />
-          </Key>
-          <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="DSPerioden">
-          <Key>
-            <PropertyRef Name="Key" />
-          </Key>
-          <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DataProcessingModelStoreContainer" CdmEntityContainer="DataProcessingEntities">
-          <EntitySetMapping Name="ADDataSet">
-            <EntityTypeMapping TypeName="DataProcessingModel.ADDataSet">
+        <EntityContainerMapping StorageEntityContainer="db_a3d9c79d_7479_4341_8168_a32f09b718a1ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ADDataSets">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADDataSet">
               <MappingFragment StoreEntitySet="ADDataSet">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
@@ -454,34 +483,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ADGeslacht">
-            <EntityTypeMapping TypeName="DataProcessingModel.ADGeslacht">
+          <EntitySetMapping Name="ADGeslachts">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADGeslacht">
               <MappingFragment StoreEntitySet="ADGeslacht">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ADHerkomst">
-            <EntityTypeMapping TypeName="DataProcessingModel.ADHerkomst">
+          <EntitySetMapping Name="ADHerkomsts">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADHerkomst">
               <MappingFragment StoreEntitySet="ADHerkomst">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="CategoryGroupID" ColumnName="CategoryGroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ADPerioden">
-            <EntityTypeMapping TypeName="DataProcessingModel.ADPerioden">
+          <EntitySetMapping Name="ADPeriodens">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.ADPerioden">
               <MappingFragment StoreEntitySet="ADPerioden">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DSDataSet">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSDataSet">
+          <EntitySetMapping Name="DSDataSets">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSDataSet">
               <MappingFragment StoreEntitySet="DSDataSet">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
@@ -565,35 +597,62 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DSMboLeerwegEnNiveau">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSMboLeerwegEnNiveau">
+          <EntitySetMapping Name="DSGeslachts">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSGeslacht">
+              <MappingFragment StoreEntitySet="DSGeslacht">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DSMboLeerwegEnNiveaux">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSMboLeerwegEnNiveau">
               <MappingFragment StoreEntitySet="DSMboLeerwegEnNiveau">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DSMboRichtingEnSector">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSMboRichtingEnSector">
+          <EntitySetMapping Name="DSMboRichtingEnSectors">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSMboRichtingEnSector">
               <MappingFragment StoreEntitySet="DSMboRichtingEnSector">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DSPersoonsKenmerken">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSPersoonsKenmerken">
+          <EntitySetMapping Name="DSPeriodens">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSPerioden">
+              <MappingFragment StoreEntitySet="DSPerioden">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DSPersoonsKenmerkens">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.DSPersoonsKenmerken">
               <MappingFragment StoreEntitySet="DSPersoonsKenmerken">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WBDataSet">
-            <EntityTypeMapping TypeName="DataProcessingModel.WBDataSet">
+          <EntitySetMapping Name="WBDataSets">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBDataSet">
               <MappingFragment StoreEntitySet="WBDataSet">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kenmerken" ColumnName="Kenmerken" />
@@ -609,40 +668,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WBKenmerken">
-            <EntityTypeMapping TypeName="DataProcessingModel.WBKenmerken">
+          <EntitySetMapping Name="WBKenmerkens">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBKenmerken">
               <MappingFragment StoreEntitySet="WBKenmerken">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WBPerioden">
-            <EntityTypeMapping TypeName="DataProcessingModel.WBPerioden">
+          <EntitySetMapping Name="WBPeriodens">
+            <EntityTypeMapping TypeName="db_a3d9c79d_7479_4341_8168_a32f09b718a1Model.WBPerioden">
               <MappingFragment StoreEntitySet="WBPerioden">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Key" ColumnName="Key" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DSGeslacht">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSGeslacht">
-              <MappingFragment StoreEntitySet="DSGeslacht">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Key" ColumnName="Key" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DSPerioden">
-            <EntityTypeMapping TypeName="DataProcessingModel.DSPerioden">
-              <MappingFragment StoreEntitySet="DSPerioden">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Key" ColumnName="Key" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -660,7 +703,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
