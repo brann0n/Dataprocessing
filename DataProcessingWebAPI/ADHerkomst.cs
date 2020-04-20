@@ -14,8 +14,9 @@ namespace DataProcessingWebAPI
     
     public partial class ADHerkomst
     {
+        public int Id { get; set; }
         public string Key { get; set; }
         public string Title { get; set; }
-        public Nullable<int> CategoryGroupID { get; set; }
+        public Nullable<decimal> CategoryGroupID { get; set; }
     }
 }

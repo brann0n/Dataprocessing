@@ -14,9 +14,10 @@ namespace DataProcessingWebAPI
     
     public partial class DSPerioden
     {
+        public int Id { get; set; }
         public string Key { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public string Status { get; set; }
+        public string Description { get; set; }
     }
 }

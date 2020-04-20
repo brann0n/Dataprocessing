@@ -14,6 +14,7 @@ namespace DataProcessingWebAPI
     
     public partial class WBPerioden
     {
+        public int Id { get; set; }
         public string Key { get; set; }
         public string Title { get; set; }
         public string Status { get; set; }
