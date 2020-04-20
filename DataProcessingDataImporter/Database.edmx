@@ -202,19 +202,19 @@
           <Property Name="Status" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="DataProcessingModelStoreContainer">
-          <EntitySet Name="ADDataSet" EntityType="Self.ADDataSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADGeslacht" EntityType="Self.ADGeslacht" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADHerkomst" EntityType="Self.ADHerkomst" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ADPerioden" EntityType="Self.ADPerioden" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSDataSet" EntityType="Self.DSDataSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSGeslacht" EntityType="Self.DSGeslacht" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSMboLeerwegEnNiveau" EntityType="Self.DSMboLeerwegEnNiveau" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSMboRichtingEnSector" EntityType="Self.DSMboRichtingEnSector" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSPerioden" EntityType="Self.DSPerioden" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DSPersoonsKenmerken" EntityType="Self.DSPersoonsKenmerken" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WBDataSet" EntityType="Self.WBDataSet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WBKenmerken" EntityType="Self.WBKenmerken" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WBPerioden" EntityType="Self.WBPerioden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ADDataSet" EntityType="Self.ADDataSet" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="ADGeslacht" EntityType="Self.ADGeslacht" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="ADHerkomst" EntityType="Self.ADHerkomst" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="ADPerioden" EntityType="Self.ADPerioden" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSDataSet" EntityType="Self.DSDataSet" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSGeslacht" EntityType="Self.DSGeslacht" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSMboLeerwegEnNiveau" EntityType="Self.DSMboLeerwegEnNiveau" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSMboRichtingEnSector" EntityType="Self.DSMboRichtingEnSector" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSPerioden" EntityType="Self.DSPerioden" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="DSPersoonsKenmerken" EntityType="Self.DSPersoonsKenmerken" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="WBDataSet" EntityType="Self.WBDataSet" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="WBKenmerken" EntityType="Self.WBKenmerken" Schema="Access" store:Type="Tables" />
+          <EntitySet Name="WBPerioden" EntityType="Self.WBPerioden" Schema="Access" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
